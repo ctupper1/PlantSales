@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PlantSalesApp
 {
-    public partial class Form1 : Form
+    public partial class frmAddNew : Form
     {
-        public Form1()
+        public frmAddNew()
         {
             InitializeComponent();
         }

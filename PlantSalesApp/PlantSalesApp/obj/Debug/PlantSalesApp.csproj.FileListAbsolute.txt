@@ -1,0 +1,13 @@
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesApp.exe.config
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesApp.exe
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesApp.pdb
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmPlantWarehouse.resources
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.Properties.Resources.resources
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.GenerateResource.cache
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.exe
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.pdb
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmAddNew.resources
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmLogin.resources
