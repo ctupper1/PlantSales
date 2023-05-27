@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PlantSalesApp
 {
-    public partial class frmLogin : Form
+    public partial class frmRegisterUser : Form
     {
-        public frmLogin()
+        public frmRegisterUser()
         {
             InitializeComponent();
         }
@@ -25,6 +25,11 @@ namespace PlantSalesApp
         private void frmLogin_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
