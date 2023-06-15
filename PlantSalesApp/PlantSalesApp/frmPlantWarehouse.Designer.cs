@@ -30,6 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.plantIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availabilityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.plantsDBDataSet = new PlantSalesApp.PlantsDBDataSet();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -53,22 +63,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.plantsDBDataSet = new PlantSalesApp.PlantsDBDataSet();
-            this.plantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.plantsTableAdapter = new PlantSalesApp.PlantsDBDataSetTableAdapters.PlantsTableAdapter();
-            this.plantIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.availabilityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -89,9 +89,84 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(1266, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // plantIdDataGridViewTextBoxColumn
+            // 
+            this.plantIdDataGridViewTextBoxColumn.DataPropertyName = "PlantId";
+            this.plantIdDataGridViewTextBoxColumn.HeaderText = "PlantId";
+            this.plantIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.plantIdDataGridViewTextBoxColumn.Name = "plantIdDataGridViewTextBoxColumn";
+            this.plantIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.plantIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // sizeDataGridViewTextBoxColumn
+            // 
+            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
+            this.sizeDataGridViewTextBoxColumn.HeaderText = "Size";
+            this.sizeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
+            this.sizeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // colorsDataGridViewTextBoxColumn
+            // 
+            this.colorsDataGridViewTextBoxColumn.DataPropertyName = "Colors";
+            this.colorsDataGridViewTextBoxColumn.HeaderText = "Colors";
+            this.colorsDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.colorsDataGridViewTextBoxColumn.Name = "colorsDataGridViewTextBoxColumn";
+            this.colorsDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // availabilityDataGridViewTextBoxColumn
+            // 
+            this.availabilityDataGridViewTextBoxColumn.DataPropertyName = "Availability";
+            this.availabilityDataGridViewTextBoxColumn.HeaderText = "Availability";
+            this.availabilityDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.availabilityDataGridViewTextBoxColumn.Name = "availabilityDataGridViewTextBoxColumn";
+            this.availabilityDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // plantsBindingSource
+            // 
+            this.plantsBindingSource.DataMember = "Plants";
+            this.plantsBindingSource.DataSource = this.plantsDBDataSet;
+            // 
+            // plantsDBDataSet
+            // 
+            this.plantsDBDataSet.DataSetName = "PlantsDBDataSet";
+            this.plantsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboBox1
             // 
@@ -179,7 +254,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(689, 514);
+            this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button3.Location = new System.Drawing.Point(1181, 514);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 39);
             this.button3.TabIndex = 8;
@@ -322,91 +398,16 @@
             this.label6.Text = "Password:";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // plantsDBDataSet
-            // 
-            this.plantsDBDataSet.DataSetName = "PlantsDBDataSet";
-            this.plantsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // plantsBindingSource
-            // 
-            this.plantsBindingSource.DataMember = "Plants";
-            this.plantsBindingSource.DataSource = this.plantsDBDataSet;
-            // 
             // plantsTableAdapter
             // 
             this.plantsTableAdapter.ClearBeforeFill = true;
-            // 
-            // plantIdDataGridViewTextBoxColumn
-            // 
-            this.plantIdDataGridViewTextBoxColumn.DataPropertyName = "PlantId";
-            this.plantIdDataGridViewTextBoxColumn.HeaderText = "PlantId";
-            this.plantIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.plantIdDataGridViewTextBoxColumn.Name = "plantIdDataGridViewTextBoxColumn";
-            this.plantIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.plantIdDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // sizeDataGridViewTextBoxColumn
-            // 
-            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
-            this.sizeDataGridViewTextBoxColumn.HeaderText = "Size";
-            this.sizeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
-            this.sizeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // colorsDataGridViewTextBoxColumn
-            // 
-            this.colorsDataGridViewTextBoxColumn.DataPropertyName = "Colors";
-            this.colorsDataGridViewTextBoxColumn.HeaderText = "Colors";
-            this.colorsDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.colorsDataGridViewTextBoxColumn.Name = "colorsDataGridViewTextBoxColumn";
-            this.colorsDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // availabilityDataGridViewTextBoxColumn
-            // 
-            this.availabilityDataGridViewTextBoxColumn.DataPropertyName = "Availability";
-            this.availabilityDataGridViewTextBoxColumn.HeaderText = "Availability";
-            this.availabilityDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.availabilityDataGridViewTextBoxColumn.Name = "availabilityDataGridViewTextBoxColumn";
-            this.availabilityDataGridViewTextBoxColumn.Width = 150;
             // 
             // frmPlantWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button3;
-            this.ClientSize = new System.Drawing.Size(800, 565);
+            this.ClientSize = new System.Drawing.Size(1292, 565);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox4);
@@ -428,11 +429,11 @@
             this.Text = "Plant Warehouse";
             this.Load += new System.EventHandler(this.frmPlantWarehouse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

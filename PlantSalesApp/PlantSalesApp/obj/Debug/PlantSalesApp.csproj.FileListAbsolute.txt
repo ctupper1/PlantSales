@@ -10,4 +10,4 @@ C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\Plan
 C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.exe
 C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.pdb
 C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmAddNew.resources
-C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmLogin.resources
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmRegisterUser.resources
