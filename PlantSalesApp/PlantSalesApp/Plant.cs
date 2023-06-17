@@ -18,6 +18,8 @@ namespace PlantSalesApp
         private decimal quantity;
         private string availability;
         private string dateAdded;
+        private int careDifficulty;
+        private string careDetails;
         private int userID;
 
         public Plant()
@@ -50,7 +52,7 @@ namespace PlantSalesApp
             get { return size; }
             set { size = value; }
         }
-        public string PotColor
+        public string Colors
         {
             get { return colors; }
             set { colors = value; }
@@ -74,6 +76,16 @@ namespace PlantSalesApp
         {
             get { return dateAdded; }
             set { dateAdded = value; }
+        }
+        public int CareDifficulty
+        {
+            get { return careDifficulty; }
+            set { careDifficulty = value; }
+        }
+        public string CareDetails
+        {
+            get { return careDetails; }
+            set { careDetails = value; }
         }
         public int UserID
         {

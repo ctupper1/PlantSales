@@ -14,6 +14,7 @@ namespace PlantSalesApp
     public partial class frmRegisterUser : Form
     {
         bool isRegister;
+
         public frmRegisterUser(bool isRegister)
         {
             this.isRegister = isRegister;

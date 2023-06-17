@@ -12,12 +12,16 @@ namespace PlantSalesApp
 {
     public partial class frmPlantWarehouse : Form
     {
+
+        bool isUserLoggedIn = false;
+
+        private int isAdmin;
+        private int userId;
+
         public frmPlantWarehouse()
         {
             InitializeComponent();
         }
-
-        bool isUserLoggedIn = false;
 
         private void cboPrice_SelectedIndexChanged(object sender, EventArgs e)
 
@@ -42,12 +46,12 @@ namespace PlantSalesApp
 
         private void frmPlantWarehouse_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'plantsDBDataSet.Plants' table. You can move, or remove it, as needed.
+            // When form first loads, all listings are displayed in datagrid view control
             this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -57,15 +61,7 @@ namespace PlantSalesApp
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -99,6 +95,37 @@ namespace PlantSalesApp
                 isUserLoggedIn = false;
                 btnLogin.Text = "Log In";
                 btnRegister.Visible = true;
+            }
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            if (!isUserLoggedIn)
+            {
+                MessageBox.Show(
+                       "You must be logged in to create a new listing",
+                       "Permission Error");
+            }
+            else
+            {
+                frmAddNew addNewItemForm = new frmAddNew();
+                DialogResult result = addNewItemForm.ShowDialog();
+            }
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (!isUserLoggedIn)
+            {
+                MessageBox.Show(
+                       "You must be logged in to remove a listing",
+                       "Permission Error");
+            }
+            else
+            {
+                // Remove currently selected item from dataset
+
             }
         }
     }
