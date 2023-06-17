@@ -30,16 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.plantIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.availabilityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.plantsDBDataSet = new PlantSalesApp.PlantsDBDataSet();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -59,16 +49,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.plantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.plantsDBDataSet = new PlantSalesApp.PlantsDBDataSet();
             this.plantsTableAdapter = new PlantSalesApp.PlantsDBDataSetTableAdapters.PlantsTableAdapter();
+            this.plantIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availabilityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -85,88 +81,14 @@
             this.descriptionDataGridViewTextBoxColumn,
             this.availabilityDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.plantsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 358);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 208);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1266, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(704, 238);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // plantIdDataGridViewTextBoxColumn
-            // 
-            this.plantIdDataGridViewTextBoxColumn.DataPropertyName = "PlantId";
-            this.plantIdDataGridViewTextBoxColumn.HeaderText = "PlantId";
-            this.plantIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.plantIdDataGridViewTextBoxColumn.Name = "plantIdDataGridViewTextBoxColumn";
-            this.plantIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.plantIdDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // sizeDataGridViewTextBoxColumn
-            // 
-            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
-            this.sizeDataGridViewTextBoxColumn.HeaderText = "Size";
-            this.sizeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
-            this.sizeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // colorsDataGridViewTextBoxColumn
-            // 
-            this.colorsDataGridViewTextBoxColumn.DataPropertyName = "Colors";
-            this.colorsDataGridViewTextBoxColumn.HeaderText = "Colors";
-            this.colorsDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.colorsDataGridViewTextBoxColumn.Name = "colorsDataGridViewTextBoxColumn";
-            this.colorsDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // availabilityDataGridViewTextBoxColumn
-            // 
-            this.availabilityDataGridViewTextBoxColumn.DataPropertyName = "Availability";
-            this.availabilityDataGridViewTextBoxColumn.HeaderText = "Availability";
-            this.availabilityDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.availabilityDataGridViewTextBoxColumn.Name = "availabilityDataGridViewTextBoxColumn";
-            this.availabilityDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // plantsBindingSource
-            // 
-            this.plantsBindingSource.DataMember = "Plants";
-            this.plantsBindingSource.DataSource = this.plantsDBDataSet;
-            // 
-            // plantsDBDataSet
-            // 
-            this.plantsDBDataSet.DataSetName = "PlantsDBDataSet";
-            this.plantsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboBox1
             // 
@@ -176,9 +98,10 @@
             "Air-Plant",
             "Flowering",
             "Edible"});
-            this.comboBox1.Location = new System.Drawing.Point(181, 306);
+            this.comboBox1.Location = new System.Drawing.Point(124, 174);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.Size = new System.Drawing.Size(82, 21);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.Text = "Type";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -190,9 +113,10 @@
             "Low-Maintenance",
             "Moderate Care",
             "Challenging"});
-            this.comboBox2.Location = new System.Drawing.Point(435, 306);
+            this.comboBox2.Location = new System.Drawing.Point(293, 174);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 28);
+            this.comboBox2.Size = new System.Drawing.Size(82, 21);
             this.comboBox2.TabIndex = 2;
             this.comboBox2.Text = "Difficulty";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
@@ -204,9 +128,10 @@
             "Small",
             "Medium",
             "Large"});
-            this.comboBox3.Location = new System.Drawing.Point(308, 306);
+            this.comboBox3.Location = new System.Drawing.Point(208, 174);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 28);
+            this.comboBox3.Size = new System.Drawing.Size(82, 21);
             this.comboBox3.TabIndex = 3;
             this.comboBox3.Text = "Size";
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
@@ -218,9 +143,10 @@
             "<$20",
             "$20-$49",
             ">$50"});
-            this.comboBox4.Location = new System.Drawing.Point(562, 306);
+            this.comboBox4.Location = new System.Drawing.Point(378, 174);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 28);
+            this.comboBox4.Size = new System.Drawing.Size(82, 21);
             this.comboBox4.TabIndex = 4;
             this.comboBox4.Text = "Price";
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
@@ -228,26 +154,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 309);
+            this.label1.Location = new System.Drawing.Point(88, 176);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Filter:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 514);
+            this.button1.Location = new System.Drawing.Point(11, 450);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 39);
+            this.button1.Size = new System.Drawing.Size(106, 25);
             this.button1.TabIndex = 6;
             this.button1.Text = "Add New";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(177, 514);
+            this.button2.Location = new System.Drawing.Point(121, 450);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 39);
+            this.button2.Size = new System.Drawing.Size(106, 25);
             this.button2.TabIndex = 7;
             this.button2.Text = "Comment";
             this.button2.UseVisualStyleBackColor = true;
@@ -255,9 +184,10 @@
             // button3
             // 
             this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button3.Location = new System.Drawing.Point(1181, 514);
+            this.button3.Location = new System.Drawing.Point(649, 456);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 39);
+            this.button3.Size = new System.Drawing.Size(66, 25);
             this.button3.TabIndex = 8;
             this.button3.Text = "Exit";
             this.button3.UseVisualStyleBackColor = true;
@@ -265,18 +195,20 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(689, 304);
+            this.button4.Location = new System.Drawing.Point(462, 173);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 37);
+            this.button4.Size = new System.Drawing.Size(66, 24);
             this.button4.TabIndex = 9;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(342, 514);
+            this.button5.Location = new System.Drawing.Point(231, 450);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(159, 39);
+            this.button5.Size = new System.Drawing.Size(106, 25);
             this.button5.TabIndex = 10;
             this.button5.Text = "Delete";
             this.button5.UseVisualStyleBackColor = true;
@@ -290,128 +222,172 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 62);
+            this.groupBox1.Location = new System.Drawing.Point(11, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 225);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(517, 146);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Details";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(310, 143);
+            this.textBox3.Location = new System.Drawing.Point(207, 93);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(460, 73);
+            this.textBox3.Size = new System.Drawing.Size(308, 49);
             this.textBox3.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(211, 143);
+            this.label4.Location = new System.Drawing.Point(141, 93);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 20);
+            this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Plant Care:";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(310, 64);
+            this.textBox2.Location = new System.Drawing.Point(207, 42);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(460, 73);
+            this.textBox2.Size = new System.Drawing.Size(308, 49);
             this.textBox2.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(211, 64);
+            this.label3.Location = new System.Drawing.Point(141, 42);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 20);
+            this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Description:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(310, 22);
+            this.textBox1.Location = new System.Drawing.Point(207, 14);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(460, 26);
+            this.textBox1.Size = new System.Drawing.Size(308, 20);
             this.textBox1.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(211, 28);
+            this.label2.Location = new System.Drawing.Point(141, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name:";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(4, 16);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 194);
+            this.pictureBox1.Size = new System.Drawing.Size(132, 126);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(629, 17);
+            this.button7.Location = new System.Drawing.Point(609, 21);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(159, 39);
+            this.button7.Size = new System.Drawing.Size(106, 25);
             this.button7.TabIndex = 13;
             this.button7.Text = "Log In";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // plantsBindingSource
             // 
-            this.textBox4.Location = new System.Drawing.Point(107, 23);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(171, 26);
-            this.textBox4.TabIndex = 15;
+            this.plantsBindingSource.DataMember = "Plants";
+            this.plantsBindingSource.DataSource = this.plantsDBDataSet;
             // 
-            // label5
+            // plantsDBDataSet
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Username:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(382, 23);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(225, 26);
-            this.textBox5.TabIndex = 17;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(289, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 20);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Password:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.plantsDBDataSet.DataSetName = "PlantsDBDataSet";
+            this.plantsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // plantsTableAdapter
             // 
             this.plantsTableAdapter.ClearBeforeFill = true;
             // 
+            // plantIdDataGridViewTextBoxColumn
+            // 
+            this.plantIdDataGridViewTextBoxColumn.DataPropertyName = "PlantId";
+            this.plantIdDataGridViewTextBoxColumn.HeaderText = "PlantId";
+            this.plantIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.plantIdDataGridViewTextBoxColumn.Name = "plantIdDataGridViewTextBoxColumn";
+            this.plantIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.plantIdDataGridViewTextBoxColumn.Visible = false;
+            this.plantIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            // 
+            // sizeDataGridViewTextBoxColumn
+            // 
+            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
+            this.sizeDataGridViewTextBoxColumn.HeaderText = "Size";
+            this.sizeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // colorsDataGridViewTextBoxColumn
+            // 
+            this.colorsDataGridViewTextBoxColumn.DataPropertyName = "Colors";
+            this.colorsDataGridViewTextBoxColumn.HeaderText = "Colors";
+            this.colorsDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.colorsDataGridViewTextBoxColumn.Name = "colorsDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.Visible = false;
+            this.descriptionDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // availabilityDataGridViewTextBoxColumn
+            // 
+            this.availabilityDataGridViewTextBoxColumn.DataPropertyName = "Availability";
+            this.availabilityDataGridViewTextBoxColumn.HeaderText = "Availability";
+            this.availabilityDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.availabilityDataGridViewTextBoxColumn.Name = "availabilityDataGridViewTextBoxColumn";
+            // 
             // frmPlantWarehouse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button3;
-            this.ClientSize = new System.Drawing.Size(1292, 565);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(743, 492);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button5);
@@ -425,15 +401,16 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPlantWarehouse";
             this.Text = "Plant Warehouse";
             this.Load += new System.EventHandler(this.frmPlantWarehouse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,10 +438,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label6;
         private PlantsDBDataSet plantsDBDataSet;
         private System.Windows.Forms.BindingSource plantsBindingSource;
         private PlantsDBDataSetTableAdapters.PlantsTableAdapter plantsTableAdapter;

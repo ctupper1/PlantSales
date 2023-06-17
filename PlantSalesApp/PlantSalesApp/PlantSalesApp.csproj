@@ -64,6 +64,9 @@
     <Compile Include="frmPlantWarehouse.Designer.cs">
       <DependentUpon>frmPlantWarehouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Invoice.cs" />
+    <Compile Include="Plant.cs" />
+    <Compile Include="PlantsDB.cs" />
     <Compile Include="PlantsDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
