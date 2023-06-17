@@ -8,12 +8,12 @@ using System.Xml;
 
 namespace PlantSalesApp
 {
-    public static class PlantDB
+    public static class PlantsDB
     {
         public static SqlConnection GetConnection()
         {
             string connectionString =
-                "Data Source=localhost\\SqlExpress;Initial Catalog=Payables;" +
+                "Data Source=localhost\\SqlExpress;Initial Catalog=PlantsDB;" +
                 "Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;

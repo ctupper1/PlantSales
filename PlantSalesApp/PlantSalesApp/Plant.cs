@@ -35,6 +35,11 @@ namespace PlantSalesApp
             get { return name; }
             set { name = value; }
         }
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
         public string Description
         {
             get { return description; }
@@ -59,6 +64,16 @@ namespace PlantSalesApp
         {
             get { return quantity; }
             set { quantity = value; }
+        }
+        public string Availability
+        {
+            get { return availability; }
+            set { availability = value; }
+        }
+        public string DateAdded
+        {
+            get { return dateAdded; }
+            set { dateAdded = value; }
         }
         public int UserID
         {

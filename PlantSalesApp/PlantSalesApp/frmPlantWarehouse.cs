@@ -17,6 +17,8 @@ namespace PlantSalesApp
             InitializeComponent();
         }
 
+        bool isUserLoggedIn = false;
+
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -62,6 +64,41 @@ namespace PlantSalesApp
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            handleRegisterForm(false);
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            handleRegisterForm(true);
+        }
+
+        private void handleRegisterForm(bool newUser)
+        {
+            if (!isUserLoggedIn)
+            {
+                // https://stackoverflow.com/questions/22133358/how-to-open-new-form-pass-parameter-and-return-parameter-back
+                frmRegisterUser registerUserForm = new frmRegisterUser(newUser);
+                DialogResult result = registerUserForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    isUserLoggedIn = true;
+                    btnLogin.Text = "Log Out";
+                    btnRegister.Visible = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                        "You are now logged out.",
+                        "User Logged Out");
+                isUserLoggedIn = false;
+                btnLogin.Text = "Log In";
+                btnRegister.Visible = true;
+            }
         }
     }
 }
