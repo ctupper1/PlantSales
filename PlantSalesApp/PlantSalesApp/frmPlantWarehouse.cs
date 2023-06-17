@@ -4,8 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;using System.Text;
+
 using System.Windows.Forms;
 
 namespace PlantSalesApp
@@ -19,19 +19,20 @@ namespace PlantSalesApp
 
         bool isUserLoggedIn = false;
 
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void cboPrice_SelectedIndexChanged(object sender, EventArgs e)
 
+        {
+            this.plantsTableAdapter.FilterByPrice(this.plantsDBDataSet.Plants, Convert.ToDecimal(cboPrice.SelectedItem));
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            this.plantsTableAdapter.FilterByType(this.plantsDBDataSet.Plants, cboType.SelectedItem.ToString());
         }
 
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            this.plantsTableAdapter.FilterBySize(this.plantsDBDataSet.Plants, cboSize.SelectedItem.ToString());
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

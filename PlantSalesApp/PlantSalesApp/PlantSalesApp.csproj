@@ -68,6 +68,9 @@
     <Compile Include="Plant.cs" />
     <Compile Include="UserDB.cs" />
     <Compile Include="PlantsDB.cs" />
+    <Compile Include="PlantsDBDataSet.cs">
+      <DependentUpon>PlantsDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PlantsDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
