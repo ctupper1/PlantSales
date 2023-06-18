@@ -48,7 +48,7 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.btnComment = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnClearFilters = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -62,10 +62,14 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.plantsTableAdapter = new PlantSalesApp.PlantsDBDataSetTableAdapters.PlantsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+<<<<<<< HEAD
+            ((System.ComponentModel.ISupportInitialize)(this.pboxPlant)).BeginInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxPlant)).BeginInit();
+>>>>>>> fe5556214d1fa06e0733723868d713a3a552a4a7
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -197,7 +201,7 @@
             this.cboDifficulty.Size = new System.Drawing.Size(82, 21);
             this.cboDifficulty.TabIndex = 2;
             this.cboDifficulty.Text = "Difficulty";
-            this.cboDifficulty.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.cboDifficulty.SelectedIndexChanged += new System.EventHandler(this.cboDifficulty_SelectedIndexChanged);
             // 
             // cboSize
             // 
@@ -273,15 +277,16 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // button4
+            // btnClearFilters
             // 
-            this.button4.Location = new System.Drawing.Point(462, 173);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(66, 24);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Clear";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnClearFilters.Location = new System.Drawing.Point(462, 173);
+            this.btnClearFilters.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClearFilters.Name = "btnClearFilters";
+            this.btnClearFilters.Size = new System.Drawing.Size(66, 24);
+            this.btnClearFilters.TabIndex = 9;
+            this.btnClearFilters.Text = "Clear";
+            this.btnClearFilters.UseVisualStyleBackColor = true;
+            this.btnClearFilters.Click += new System.EventHandler(this.btnClearFilters_Click);
             // 
             // btnDelete
             // 
@@ -405,6 +410,75 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
+            // plantsBindingSource
+            // 
+            this.plantsBindingSource.DataMember = "Plants";
+            this.plantsBindingSource.DataSource = this.plantsDBDataSet;
+            // 
+            // plantsDBDataSet
+            // 
+            this.plantsDBDataSet.DataSetName = "PlantsDBDataSet";
+            this.plantsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // plantIdDataGridViewTextBoxColumn
+            // 
+            this.plantIdDataGridViewTextBoxColumn.DataPropertyName = "PlantId";
+            this.plantIdDataGridViewTextBoxColumn.HeaderText = "PlantId";
+            this.plantIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.plantIdDataGridViewTextBoxColumn.Name = "plantIdDataGridViewTextBoxColumn";
+            this.plantIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.plantIdDataGridViewTextBoxColumn.Visible = false;
+            this.plantIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // sizeDataGridViewTextBoxColumn
+            // 
+            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
+            this.sizeDataGridViewTextBoxColumn.HeaderText = "Size";
+            this.sizeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
+            this.sizeDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.Visible = false;
+            this.descriptionDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // availabilityDataGridViewTextBoxColumn
+            // 
+            this.availabilityDataGridViewTextBoxColumn.DataPropertyName = "Availability";
+            this.availabilityDataGridViewTextBoxColumn.HeaderText = "Availability";
+            this.availabilityDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.availabilityDataGridViewTextBoxColumn.Name = "availabilityDataGridViewTextBoxColumn";
+            this.availabilityDataGridViewTextBoxColumn.Width = 150;
+            // 
             // plantsTableAdapter
             // 
             this.plantsTableAdapter.ClearBeforeFill = true;
@@ -419,7 +493,7 @@
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnClearFilters);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnComment);
             this.Controls.Add(this.btnAddNew);
@@ -434,11 +508,15 @@
             this.Text = "Plant Warehouse";
             this.Load += new System.EventHandler(this.frmPlantWarehouse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.pboxPlant)).EndInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).EndInit();
+>>>>>>> fe5556214d1fa06e0733723868d713a3a552a4a7
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,7 +533,7 @@
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Button btnComment;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnClearFilters;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
