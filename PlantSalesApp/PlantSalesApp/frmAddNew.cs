@@ -12,7 +12,6 @@ namespace PlantSalesApp
 {
     public partial class frmAddNew : Form
     {
-        public Plant plant;
 
         public frmAddNew(int userId)
         {
@@ -56,9 +55,6 @@ namespace PlantSalesApp
                 newPlant.CareDifficulty = (int)careDifficultyNumericUpDown.Value;
                 newPlant.UserID = Session.UserId;
 
-                // set user to return on dialog close
-                plant = newPlant;
-
                 //Add newPlant to the database
                 PlantsDB.AddNewItem(newPlant);
 
@@ -66,12 +62,7 @@ namespace PlantSalesApp
                 // 
                 //plantsTableAdapter.Insert(newPlant.Name, newPlant.Type, newPlant.Size, newPlant.Price, newPlant.Colors, newPlant.Description, newPlant.Availability, newPlant.CareDetails, newPlant.CareDifficulty, dateAdded, newPlant.UserID);
 
-
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Please check your entry and try again.");
             }
         }
 

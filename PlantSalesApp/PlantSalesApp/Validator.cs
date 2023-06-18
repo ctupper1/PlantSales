@@ -70,53 +70,5 @@ namespace PlantSalesApp
                 return false;
             }
         }
-
-        public static bool IsInt32(TextBox textBox)
-        {
-            try
-            {
-                Convert.ToInt32(textBox.Text);
-                return true;
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show(textBox.Tag.ToString() + " must be an integer value.", Title);
-                textBox.Focus();
-                return false;
-            }
-        }
-
-        public static bool IsStateZipCode(TextBox textBox,
-            int firstZip, int lastZip)
-        {
-            int zipCode = Convert.ToInt32(textBox.Text);
-            if (zipCode <= firstZip || zipCode >= lastZip)
-            {
-                MessageBox.Show(textBox.Tag.ToString() + " must be within this range: " +
-                    firstZip + " to " + lastZip + ".", Title);
-                textBox.Focus();
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        public static bool IsPhoneNumber(TextBox textBox)
-        {
-            string phoneChars = textBox.Text.Replace(".", "");
-            try
-            {
-                Convert.ToInt64(phoneChars);
-                return true;
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show(textBox.Tag.ToString() + " must be in this format: " +
-                    "999.999.9999.", Title);
-                textBox.Focus();
-                return false;
-            }
-        }
     }
 }

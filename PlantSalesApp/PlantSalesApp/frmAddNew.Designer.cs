@@ -155,7 +155,7 @@
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(79, 32);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(311, 20);
             this.nameTextBox.TabIndex = 2;
@@ -164,7 +164,7 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.Location = new System.Drawing.Point(79, 55);
-            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(311, 60);
@@ -174,7 +174,7 @@
             // careDetailsTextBox
             // 
             this.careDetailsTextBox.Location = new System.Drawing.Point(79, 118);
-            this.careDetailsTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.careDetailsTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.careDetailsTextBox.Multiline = true;
             this.careDetailsTextBox.Name = "careDetailsTextBox";
             this.careDetailsTextBox.Size = new System.Drawing.Size(311, 60);
@@ -190,7 +190,7 @@
             "Flowering",
             "Edible Plant"});
             this.typeComboBox.Location = new System.Drawing.Point(79, 181);
-            this.typeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.typeComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(82, 21);
             this.typeComboBox.TabIndex = 7;
@@ -204,7 +204,7 @@
             "Medium",
             "Large"});
             this.sizeComboBox.Location = new System.Drawing.Point(199, 181);
-            this.sizeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sizeComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.sizeComboBox.Name = "sizeComboBox";
             this.sizeComboBox.Size = new System.Drawing.Size(82, 21);
             this.sizeComboBox.TabIndex = 9;
@@ -213,7 +213,7 @@
             // priceTextBox
             // 
             this.priceTextBox.Location = new System.Drawing.Point(322, 182);
-            this.priceTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.priceTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(68, 20);
             this.priceTextBox.TabIndex = 11;
@@ -222,7 +222,7 @@
             // careDifficultyNumericUpDown
             // 
             this.careDifficultyNumericUpDown.Location = new System.Drawing.Point(86, 211);
-            this.careDifficultyNumericUpDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.careDifficultyNumericUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.careDifficultyNumericUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -245,9 +245,8 @@
             // 
             // btnAccept
             // 
-            this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAccept.Location = new System.Drawing.Point(11, 242);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(90, 31);
             this.btnAccept.TabIndex = 14;
@@ -259,7 +258,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(120, 242);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 31);
             this.btnCancel.TabIndex = 15;
@@ -289,7 +288,7 @@
             this.Controls.Add(this.descriptionTextBox);
             this.Controls.Add(nameLabel);
             this.Controls.Add(this.nameTextBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddNew";
             this.Text = "Add New Item";
             this.Load += new System.EventHandler(this.frmAddNew_Load);

@@ -105,18 +105,15 @@ namespace PlantSalesApp
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             frmAddNew addNewPlantForm = new frmAddNew(Session.UserId);
-            DialogResult result = addNewPlantForm.ShowDialog(); 
-            
-            // I think Update should work here as it does with delete but it doesn't
+            DialogResult result = addNewPlantForm.ShowDialog();
 
-            // yeah, i was not able to figure it out either. It looks like it has to do with the
-            // binding source for the data grid?
-            
-            if (result==DialogResult.OK)
-            {
                 // this.plantsTableAdapter.Update(this.plantsDBDataSet.Plants);
                 this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
-            }
+                cboType.SelectedIndex = -1;
+                cboPrice.SelectedIndex = -1;
+                cboDifficulty.SelectedIndex = -1;
+                cboSize.SelectedIndex = -1;
+
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
