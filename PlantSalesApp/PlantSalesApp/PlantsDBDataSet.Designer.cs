@@ -1671,7 +1671,7 @@ SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, Care
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, CareD" +
@@ -1679,29 +1679,44 @@ SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, Care
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Availability, CareDetails, CareDifficulty, Colors, DateAdded, Description," +
-                " Name, PlantId, Price, Size, Type, ListedBy FROM Plants WHERE (Price < @maxPrice" +
-                ")";
+            this._commandCollection[1].CommandText = @"SELECT        PlantId, Name, Type, Size, Price, Colors, Description, Availability, CareDetails, CareDifficulty, DateAdded, ListedBy
+FROM            Plants
+WHERE        (Price < @maxPrice) AND (Type = @type) AND (Size = @size) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) OR
+                         (Price < @maxPrice) AND (Size = @size) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) AND (@type IS NULL) OR
+                         (Price < @maxPrice) AND (Type = @type) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) AND (@size IS NULL) OR
+                         (Price < @maxPrice) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) AND (@type IS NULL) AND (@size IS NULL)
+ORDER BY DateAdded DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@maxPrice", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@size", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Size", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@careDifficultyStart", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CareDifficulty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@careDifficultyEnd", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CareDifficulty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT Availability, CareDetails, CareDifficulty, Colors, DateAdded, Description," +
-                " Name, PlantId, Price, Size, Type, ListedBy FROM Plants WHERE (Size = @Size)";
+                " Name, PlantId, Price, Size, Type, ListedBy FROM Plants WHERE (Price < @maxPrice" +
+                ")";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Size", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Size", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@maxPrice", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT Availability, CareDetails, CareDifficulty, Colors, DateAdded, Description," +
-                " Name, PlantId, Price, Size, Type, ListedBy FROM Plants WHERE (Type LIKE @Type +" +
-                " \'%\')";
+                " Name, PlantId, Price, Size, Type, ListedBy FROM Plants WHERE (Size = @Size)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Size", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Size", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT ListedBy FROM Plants WHERE (ListedBy = @ListedBy)";
+            this._commandCollection[4].CommandText = "SELECT Availability, CareDetails, CareDifficulty, Colors, DateAdded, Description," +
+                " Name, PlantId, Price, Size, Type, ListedBy FROM Plants WHERE (Type LIKE @Type +" +
+                " \'%\')";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ListedBy", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ListedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT ListedBy FROM Plants WHERE (ListedBy = @ListedBy)";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ListedBy", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ListedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1732,8 +1747,46 @@ SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, Care
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FilterByPrice(PlantsDBDataSet.PlantsDataTable dataTable, decimal maxPrice) {
+        public virtual int FillByFilters(PlantsDBDataSet.PlantsDataTable dataTable, decimal maxPrice, string type, string size, global::System.Nullable<int> careDifficultyStart, global::System.Nullable<int> careDifficultyEnd) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(maxPrice));
+            if ((type == null)) {
+                throw new global::System.ArgumentNullException("type");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(type));
+            }
+            if ((size == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(size));
+            }
+            if ((careDifficultyStart.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(careDifficultyStart.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((careDifficultyEnd.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((int)(careDifficultyEnd.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FilterByPrice(PlantsDBDataSet.PlantsDataTable dataTable, decimal maxPrice) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(maxPrice));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1747,7 +1800,7 @@ SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, Care
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FilterBySize(PlantsDBDataSet.PlantsDataTable dataTable, string Size) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((Size == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1766,7 +1819,7 @@ SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, Care
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FilterByType(PlantsDBDataSet.PlantsDataTable dataTable, string Type) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((Type == null)) {
                 throw new global::System.ArgumentNullException("Type");
             }
@@ -2174,7 +2227,7 @@ SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, Care
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object FindListingCreator(global::System.Nullable<int> ListedBy) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((ListedBy.HasValue == true)) {
                 command.Parameters[0].Value = ((int)(ListedBy.Value));
             }

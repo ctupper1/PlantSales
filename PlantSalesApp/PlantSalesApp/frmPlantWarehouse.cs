@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace PlantSalesApp
@@ -20,29 +21,6 @@ namespace PlantSalesApp
             InitializeComponent();
         }
 
-
-        //Filter event handlers
-        //TODO: filters should combine until cleared
-        private void cboPrice_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.plantsTableAdapter.FilterByPrice(this.plantsDBDataSet.Plants, Convert.ToDecimal(cboPrice.SelectedItem));
-        }
-
-        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.plantsTableAdapter.FilterByType(this.plantsDBDataSet.Plants, cboType.SelectedItem.ToString());
-        }
-
-        private void cboSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.plantsTableAdapter.FilterBySize(this.plantsDBDataSet.Plants, cboSize.SelectedItem.ToString());
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmPlantWarehouse_Load(object sender, EventArgs e)
         {
             // When form first loads, all listings are displayed in datagrid view control, add/delete/comment is disabled until logged in
@@ -51,6 +29,77 @@ namespace PlantSalesApp
             btnDelete.Enabled = false;
             btnComment.Enabled = false;
 
+        }
+
+        public void filterDataGrid()
+        {
+            decimal price;
+            string type;
+            string size;
+            int careDifficultyStart = 1;
+            int careDifficultyEnd = 10;
+
+            // type does not want to work
+
+            if (cboPrice.SelectedIndex == -1) price = 10000;
+            else price = Convert.ToDecimal(cboPrice.SelectedItem);
+            if (cboType.SelectedIndex == -1) type = null;
+            else type = cboType.SelectedItem.ToString();
+            if (cboDifficulty.SelectedIndex == -1)
+            {
+                careDifficultyStart = 1;
+                careDifficultyEnd = 10;
+            }
+            else
+            {
+                if (cboDifficulty.SelectedItem.ToString() == "Low-Maintenance")
+                {
+                    careDifficultyStart = 1;
+                    careDifficultyEnd = 3;
+                }
+                else if (cboDifficulty.SelectedItem.ToString() == "Moderate Care")
+                {
+                    careDifficultyStart = 4;
+                    careDifficultyEnd = 7;
+                }
+                if (cboDifficulty.SelectedItem.ToString() == "Challenging")
+                {
+                    careDifficultyStart = 8;
+                    careDifficultyEnd = 10;
+                }
+            }
+            if (cboSize.SelectedIndex == -1) size = null;
+            else size = cboSize.SelectedItem.ToString();
+            this.plantsTableAdapter.FillByFilters(this.plantsDBDataSet.Plants, price, type, 
+                size, careDifficultyStart, careDifficultyEnd);
+        }
+        
+        private void cboPrice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.filterDataGrid();
+        }
+
+        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.filterDataGrid();
+        }
+
+        private void cboSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.filterDataGrid();
+        }
+
+        private void cboDifficulty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.filterDataGrid();
+        }
+
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            cboPrice.SelectedIndex = -1;
+            cboSize.SelectedIndex = -1;
+            cboType.SelectedIndex = -1;
+            cboDifficulty.SelectedIndex = -1;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -147,6 +196,7 @@ namespace PlantSalesApp
         {
             // probably need to add comments table
             // fields might need to be:
+            // commentId
             // userId
             // plantId
             // comment
