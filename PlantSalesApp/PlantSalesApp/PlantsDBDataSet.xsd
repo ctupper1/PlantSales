@@ -274,7 +274,7 @@ SELECT UserId, Username, Password, IsAdmin FROM Users WHERE (UserId = @UserId)</
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ListedBy" msprop:Generator_UserColumnName="ListedBy" msprop:Generator_ColumnPropNameInTable="ListedByColumn" msprop:Generator_ColumnPropNameInRow="ListedBy" msprop:Generator_ColumnVarNameInTable="columnListedBy" type="xs:int" minOccurs="0" />
+              <xs:element name="ListedBy" msprop:Generator_ColumnPropNameInTable="ListedByColumn" msprop:Generator_ColumnPropNameInRow="ListedBy" msprop:Generator_UserColumnName="ListedBy" msprop:Generator_ColumnVarNameInTable="columnListedBy" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

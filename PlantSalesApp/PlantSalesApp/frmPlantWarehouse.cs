@@ -46,7 +46,7 @@ namespace PlantSalesApp
         private void frmPlantWarehouse_Load(object sender, EventArgs e)
         {
             // When form first loads, all listings are displayed in datagrid view control, add/delete/comment is disabled until logged in
-            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
+            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);          
             btnAddNew.Enabled = false;
             btnDelete.Enabled = false;
             btnComment.Enabled = false;
@@ -151,6 +151,8 @@ namespace PlantSalesApp
             // plantId
             // comment
             // dateTimeAdded
+            frmComments frmComments = new frmComments();
+            frmComments.ShowDialog();
         }
     }
 }
