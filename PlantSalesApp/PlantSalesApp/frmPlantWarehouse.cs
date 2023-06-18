@@ -15,14 +15,14 @@ namespace PlantSalesApp
 
         bool isUserLoggedIn = false;
 
-        private int isAdmin;
-        private int userId;
-
         public frmPlantWarehouse()
         {
             InitializeComponent();
         }
 
+
+        //Filter event handlers
+        //TODO: filters should combine until cleared
         private void cboPrice_SelectedIndexChanged(object sender, EventArgs e)
 
         {
@@ -46,8 +46,11 @@ namespace PlantSalesApp
 
         private void frmPlantWarehouse_Load(object sender, EventArgs e)
         {
-            // When form first loads, all listings are displayed in datagrid view control
+            // When form first loads, all listings are displayed in datagrid view control, add/delete/comment is disabled until logged in
             this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
+            btnAddNew.Enabled = false;
+            btnDelete.Enabled = false;
+            btnComment.Enabled = false;
 
         }
 
@@ -60,8 +63,6 @@ namespace PlantSalesApp
         {
 
         }
-
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -85,6 +86,10 @@ namespace PlantSalesApp
                     isUserLoggedIn = true;
                     btnLogin.Text = "Log Out";
                     btnRegister.Visible = false;
+
+                    btnDelete.Enabled = true;
+                    btnAddNew.Enabled = true;
+                    btnComment.Enabled = true;
                 }
             }
             else
@@ -100,33 +105,29 @@ namespace PlantSalesApp
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            if (!isUserLoggedIn)
-            {
-                MessageBox.Show(
-                       "You must be logged in to create a new listing",
-                       "Permission Error");
-            }
-            else
-            {
-                frmAddNew addNewItemForm = new frmAddNew();
-                DialogResult result = addNewItemForm.ShowDialog();
-            }
+            frmAddNew addNewItemForm = new frmAddNew(Session.UserId);
+            DialogResult result = addNewItemForm.ShowDialog(); 
+            
+            // I think Update should work here as it does with delete but it doesn't
 
+            if (result==DialogResult.OK)
+            {
+                this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!isUserLoggedIn)
-            {
-                MessageBox.Show(
-                       "You must be logged in to remove a listing",
-                       "Permission Error");
-            }
-            else
-            {
-                // Remove currently selected item from dataset
+            // Remove currently selected item from dataset, save change to db
+            int selectedRow = dataGridView1.CurrentCell.RowIndex;
+            dataGridView1.Rows.RemoveAt(selectedRow);
 
-            }
+            this.plantsTableAdapter.Update(this.plantsDBDataSet.Plants);
+        }
+
+        private void btnComment_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

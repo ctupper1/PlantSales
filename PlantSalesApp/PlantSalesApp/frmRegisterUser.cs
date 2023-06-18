@@ -48,6 +48,8 @@ namespace PlantSalesApp
                 }
                 if (user != null) {
                     this.DialogResult = DialogResult.OK;
+                    Session.UserId = UserDB.GetUserId(user);                 
+                    this.Close();
                 }
                 else
                 {

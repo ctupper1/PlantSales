@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -74,6 +75,34 @@ namespace PlantSalesApp
             {
                 connection.Close();
             }
+        }
+// New method added to retrieve user id from login credentials. UserID is saved to session
+        public static int GetUserId(User user)
+        {
+            int userId;
+
+            SqlConnection connection = PlantsDB.GetConnection();
+            string selectStatement =
+                "SELECT UserId FROM Users WHERE username = @Username AND password = @Password";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.Parameters.AddWithValue("@Username", user.Username);
+            selectCommand.Parameters.AddWithValue("@Password", user.Password);
+
+            try
+            {
+                connection.Open();
+                userId = (int)selectCommand.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return userId;
+            
         }
     }
 }

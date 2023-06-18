@@ -12,7 +12,8 @@ namespace PlantSalesApp
 {
     public partial class frmAddNew : Form
     {
-        public frmAddNew()
+
+        public frmAddNew(int userId)
         {
             InitializeComponent();
 
@@ -28,8 +29,6 @@ namespace PlantSalesApp
 
         private void frmAddNew_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'plantsDBDataSet.Plants' table. You can move, or remove it, as needed.
-            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
 
         }
 
@@ -52,12 +51,17 @@ namespace PlantSalesApp
             newPlant.Availability = "In Stock";
             newPlant.CareDetails = careDetailsTextBox.Text;
             newPlant.CareDifficulty = (int)careDifficultyNumericUpDown.Value;
+            newPlant.UserID = Session.UserId;
 
-            PlantsDB.AddNewItem(newPlant);
+
             //Add newPlant to the database
-            //plantsTableAdapter.Insert(newPlant.Name, newPlant.Type, newPlant.Size, newPlant.Price, newPlant.Colors, newPlant.Description, newPlant.Availability, newPlant.CareDetails, newPlant.CareDifficulty, dateAdded);
+            PlantsDB.AddNewItem(newPlant);
 
+            // I'm still not sure which method is best to use here. The method above seems simpler but doesn't use the dataset. Should we eliminate the dataset entirely?
+            // 
+            //plantsTableAdapter.Insert(newPlant.Name, newPlant.Type, newPlant.Size, newPlant.Price, newPlant.Colors, newPlant.Description, newPlant.Availability, newPlant.CareDetails, newPlant.CareDifficulty, dateAdded, newPlant.UserID);
             
+
             this.Close();
         }
     }

@@ -25,8 +25,8 @@ namespace PlantSalesApp
             SqlConnection connection = GetConnection();
             string insertStatement =
                 "INSERT INTO Plants " +
-                "(Name, Type, Size, Price, Colors, Description, Availability, DateAdded, CareDifficulty, CareDetails) " +
-                "VALUES (@Name, @Type, @Size, @Price, @Colors, @Description, @Availability, @DateAdded, @CareDifficulty, @CareDetails)";
+                "(Name, Type, Size, Price, Colors, Description, Availability, DateAdded, CareDifficulty, CareDetails, ListedBy) " +
+                "VALUES (@Name, @Type, @Size, @Price, @Colors, @Description, @Availability, @DateAdded, @CareDifficulty, @CareDetails, @ListedBy)";
             SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
             insertCommand.Parameters.AddWithValue("@Name",
                 plant.Name);
@@ -40,6 +40,7 @@ namespace PlantSalesApp
             insertCommand.Parameters.AddWithValue("@DateAdded", DateTime.Now);
             insertCommand.Parameters.AddWithValue("@CareDifficulty", plant.CareDifficulty);
             insertCommand.Parameters.AddWithValue("@CareDetails", plant.CareDetails);
+            insertCommand.Parameters.AddWithValue("@ListedBy", plant.UserID);
 
             try
             {

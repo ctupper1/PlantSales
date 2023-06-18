@@ -46,7 +46,7 @@
             this.cboPrice = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnComment = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -243,14 +243,15 @@
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
-            // button2
+            // btnComment
             // 
-            this.button2.Location = new System.Drawing.Point(182, 692);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 38);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Comment";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnComment.Location = new System.Drawing.Point(182, 692);
+            this.btnComment.Name = "btnComment";
+            this.btnComment.Size = new System.Drawing.Size(159, 38);
+            this.btnComment.TabIndex = 7;
+            this.btnComment.Text = "Comment";
+            this.btnComment.UseVisualStyleBackColor = true;
+            this.btnComment.Click += new System.EventHandler(this.btnComment_Click);
             // 
             // button3
             // 
@@ -394,7 +395,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnComment);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboPrice);
@@ -425,7 +426,7 @@
         private System.Windows.Forms.ComboBox cboPrice;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnComment;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnDelete;
