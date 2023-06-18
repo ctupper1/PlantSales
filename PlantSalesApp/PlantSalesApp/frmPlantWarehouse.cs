@@ -5,8 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;using System.Text;
-
 using System.Windows.Forms;
+
 
 namespace PlantSalesApp
 {
@@ -24,7 +24,6 @@ namespace PlantSalesApp
         //Filter event handlers
         //TODO: filters should combine until cleared
         private void cboPrice_SelectedIndexChanged(object sender, EventArgs e)
-
         {
             this.plantsTableAdapter.FilterByPrice(this.plantsDBDataSet.Plants, Convert.ToDecimal(cboPrice.SelectedItem));
         }
@@ -105,17 +104,20 @@ namespace PlantSalesApp
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            frmAddNew addNewItemForm = new frmAddNew(Session.UserId);
-            DialogResult result = addNewItemForm.ShowDialog(); 
+            frmAddNew addNewPlantForm = new frmAddNew(Session.UserId);
+            DialogResult result = addNewPlantForm.ShowDialog(); 
             
             // I think Update should work here as it does with delete but it doesn't
 
+            // yeah, i was not able to figure it out either. It looks like it has to do with the
+            // binding source for the data grid?
+            
             if (result==DialogResult.OK)
             {
+                // this.plantsTableAdapter.Update(this.plantsDBDataSet.Plants);
                 this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
             }
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dataGridView1.CurrentRow;
@@ -125,28 +127,33 @@ namespace PlantSalesApp
             // Get userID of user that created currently selected listing
             // Find userId in first column of selected row
             int listingCreator = (int)selectedRow.Cells[1].Value;
-
             if (Session.IsAdmin == 0 && Session.UserId != listingCreator)
             {
-                MessageBox.Show(
-                                       "You can only delete your own listings.",
-                                                          "Delete Failed");
+                MessageBox.Show("You can only delete your own listings.",
+                    "Delete Failed");
                 return;
             }
             else
             {
-
-                dataGridView1.Rows.RemoveAt(selectedRowIndex);
-
-                this.plantsTableAdapter.Update(this.plantsDBDataSet.Plants);
+                // adds simple dialog to accept or deny
+                // https://stackoverflow.com/questions/3036829/how-do-i-create-a-message-box-with-yes-no-choices-and-a-dialogresult
+                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this listing?",
+                    "Delete Listing", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    dataGridView1.Rows.RemoveAt(selectedRowIndex);
+                    this.plantsTableAdapter.Update(this.plantsDBDataSet.Plants);
+                }
             }
-
-
         }
-
         private void btnComment_Click(object sender, EventArgs e)
         {
-
+            // probably need to add comments table
+            // fields might need to be:
+            // userId
+            // plantId
+            // comment
+            // dateTimeAdded
         }
     }
 }
