@@ -118,11 +118,30 @@ namespace PlantSalesApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Remove currently selected item from dataset, save change to db
-            int selectedRow = dataGridView1.CurrentCell.RowIndex;
-            dataGridView1.Rows.RemoveAt(selectedRow);
+            DataGridViewRow selectedRow = dataGridView1.CurrentRow;
+            int selectedRowIndex = selectedRow.Index;
+            //int selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
-            this.plantsTableAdapter.Update(this.plantsDBDataSet.Plants);
+            // Get userID of user that created currently selected listing
+            // Find userId in first column of selected row
+            int listingCreator = (int)selectedRow.Cells[1].Value;
+
+            if (Session.IsAdmin == 0 && Session.UserId != listingCreator)
+            {
+                MessageBox.Show(
+                                       "You can only delete your own listings.",
+                                                          "Delete Failed");
+                return;
+            }
+            else
+            {
+
+                dataGridView1.Rows.RemoveAt(selectedRowIndex);
+
+                this.plantsTableAdapter.Update(this.plantsDBDataSet.Plants);
+            }
+
+
         }
 
         private void btnComment_Click(object sender, EventArgs e)

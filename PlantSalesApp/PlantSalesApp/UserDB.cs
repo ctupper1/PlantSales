@@ -77,6 +77,8 @@ namespace PlantSalesApp
             }
         }
 // New method added to retrieve user id from login credentials. UserID is saved to session
+// Makes sense to store admin credentials here too in order to extend higher privelege to admin users
+// Admin should be able to remove any listing, users limited to listings that they created
         public static int GetUserId(User user)
         {
             int userId;
