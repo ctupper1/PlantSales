@@ -24,3 +24,16 @@ C:\Users\srctb\Source\Repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\Pla
 C:\Users\srctb\Source\Repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.CoreCompileInputs.cache
 C:\Users\srctb\Source\Repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.exe
 C:\Users\srctb\Source\Repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.pdb
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesApp.exe.config
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesApp.exe
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesApp.pdb
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.AssemblyReference.cache
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmRegisterUser.resources
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmAddNew.resources
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmPlantWarehouse.resources
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.Properties.Resources.resources
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.GenerateResource.cache
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.CoreCompileInputs.cache
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.exe
+C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.pdb

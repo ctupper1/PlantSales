@@ -69,6 +69,10 @@ namespace PlantSalesApp
 
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Please check your entry and try again.");
+            }
         }
 
         private bool IsValidData()
@@ -83,7 +87,8 @@ namespace PlantSalesApp
                 Validator.IsDecimal(priceTextBox))
             {
                 return true;
-            } else
+            }
+            else
             {
                 return false;
             }
