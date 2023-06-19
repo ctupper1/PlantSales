@@ -79,13 +79,11 @@ namespace PlantSalesApp
 // New method added to retrieve user id from login credentials. UserID is saved to session
 // Makes sense to store admin credentials here too in order to extend higher privelege to admin users
 // Admin should be able to remove any listing, users limited to listings that they created
-        public static int GetUserId(User user)
+        public static void GetUserId(User user)
         {
-            int userId;
-
             SqlConnection connection = PlantsDB.GetConnection();
             string selectStatement =
-                "SELECT UserId FROM Users WHERE username = @Username AND password = @Password";
+                "SELECT UserId, IsAdmin FROM Users WHERE username = @Username AND password = @Password";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             selectCommand.Parameters.AddWithValue("@Username", user.Username);
             selectCommand.Parameters.AddWithValue("@Password", user.Password);
@@ -93,7 +91,14 @@ namespace PlantSalesApp
             try
             {
                 connection.Open();
-                userId = (int)selectCommand.ExecuteScalar();
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                if (reader.Read())
+                {
+                    //Set userId and isAdmin to results of select statement
+                    Session.UserId= (int)reader["UserId"];
+                    Session.IsAdmin = (int)reader["IsAdmin"];
+                }
+                //userId = (int)selectCommand.ExecuteScalar();
             }
             catch (SqlException ex)
             {
@@ -103,7 +108,6 @@ namespace PlantSalesApp
             {
                 connection.Close();
             }
-            return userId;
             
         }
     }

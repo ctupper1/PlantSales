@@ -38,3 +38,4 @@ C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\P
 C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.exe
 C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.pdb
 C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmComments.resources
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmComments.resources

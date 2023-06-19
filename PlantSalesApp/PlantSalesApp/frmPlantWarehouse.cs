@@ -179,7 +179,7 @@ namespace PlantSalesApp
                     "Delete Failed");
                 return;
             }
-            else
+            else if (Session.IsAdmin == 1 || Session.UserId == listingCreator)
             {
                 // adds simple dialog to accept or deny
                 // https://stackoverflow.com/questions/3036829/how-do-i-create-a-message-box-with-yes-no-choices-and-a-dialogresult

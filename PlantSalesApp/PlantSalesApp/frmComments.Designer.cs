@@ -36,18 +36,20 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(12, 387);
+            this.btnSave.Location = new System.Drawing.Point(18, 595);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(106, 23);
+            this.btnSave.Size = new System.Drawing.Size(159, 35);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(125, 387);
+            this.btnDelete.Location = new System.Drawing.Point(188, 595);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(106, 23);
+            this.btnDelete.Size = new System.Drawing.Size(159, 35);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -55,9 +57,10 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(682, 387);
+            this.btnExit.Location = new System.Drawing.Point(1023, 595);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(106, 23);
+            this.btnExit.Size = new System.Drawing.Size(159, 35);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -65,22 +68,25 @@
             // 
             // txtComment
             // 
-            this.txtComment.Location = new System.Drawing.Point(12, 269);
+            this.txtComment.Location = new System.Drawing.Point(18, 414);
+            this.txtComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(776, 112);
+            this.txtComment.Size = new System.Drawing.Size(1162, 170);
             this.txtComment.TabIndex = 3;
             // 
             // frmComments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.txtComment);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmComments";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmComments";
             this.Load += new System.EventHandler(this.frmComments_Load);
             this.ResumeLayout(false);
