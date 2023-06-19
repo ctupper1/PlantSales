@@ -54,6 +54,7 @@
     <Compile Include="frmComments.Designer.cs">
       <DependentUpon>frmComments.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommentsDB.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="frmRegisterUser.cs">
       <SubType>Form</SubType>
@@ -75,6 +76,7 @@
     </Compile>
     <Compile Include="Invoice.cs" />
     <Compile Include="Plant.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="UserDB.cs" />
     <Compile Include="PlantsDB.cs" />
     <Compile Include="PlantsDBDataSet.cs">

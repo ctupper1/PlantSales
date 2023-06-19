@@ -61,6 +61,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.plantsTableAdapter = new PlantSalesApp.PlantsDBDataSetTableAdapters.PlantsTableAdapter();
+            this.chkShowAll = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).BeginInit();
@@ -70,6 +71,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -83,12 +85,15 @@
             this.availabilityDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.plantsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(16, 320);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1056, 366);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // plantIdDataGridViewTextBoxColumn
             // 
@@ -106,6 +111,7 @@
             this.ListedBy.HeaderText = "ListedBy";
             this.ListedBy.MinimumWidth = 8;
             this.ListedBy.Name = "ListedBy";
+            this.ListedBy.ReadOnly = true;
             this.ListedBy.Width = 150;
             // 
             // nameDataGridViewTextBoxColumn
@@ -114,6 +120,7 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             this.nameDataGridViewTextBoxColumn.Width = 120;
             // 
             // typeDataGridViewTextBoxColumn
@@ -122,6 +129,7 @@
             this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
             this.typeDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
             this.typeDataGridViewTextBoxColumn.Width = 150;
             // 
             // sizeDataGridViewTextBoxColumn
@@ -130,6 +138,7 @@
             this.sizeDataGridViewTextBoxColumn.HeaderText = "Size";
             this.sizeDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
+            this.sizeDataGridViewTextBoxColumn.ReadOnly = true;
             this.sizeDataGridViewTextBoxColumn.Width = 80;
             // 
             // priceDataGridViewTextBoxColumn
@@ -138,6 +147,7 @@
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn.Width = 80;
             // 
             // descriptionDataGridViewTextBoxColumn
@@ -146,6 +156,7 @@
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             this.descriptionDataGridViewTextBoxColumn.Visible = false;
             this.descriptionDataGridViewTextBoxColumn.Width = 150;
             // 
@@ -155,6 +166,7 @@
             this.availabilityDataGridViewTextBoxColumn.HeaderText = "Availability";
             this.availabilityDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.availabilityDataGridViewTextBoxColumn.Name = "availabilityDataGridViewTextBoxColumn";
+            this.availabilityDataGridViewTextBoxColumn.ReadOnly = true;
             this.availabilityDataGridViewTextBoxColumn.Width = 150;
             // 
             // plantsBindingSource
@@ -175,7 +187,7 @@
             "Air-Plant",
             "Flowering",
             "Edible"});
-            this.cboType.Location = new System.Drawing.Point(186, 268);
+            this.cboType.Location = new System.Drawing.Point(72, 271);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(121, 28);
             this.cboType.TabIndex = 1;
@@ -189,7 +201,7 @@
             "Low-Maintenance",
             "Moderate Care",
             "Challenging"});
-            this.cboDifficulty.Location = new System.Drawing.Point(440, 268);
+            this.cboDifficulty.Location = new System.Drawing.Point(326, 271);
             this.cboDifficulty.Name = "cboDifficulty";
             this.cboDifficulty.Size = new System.Drawing.Size(121, 28);
             this.cboDifficulty.TabIndex = 2;
@@ -203,7 +215,7 @@
             "Small",
             "Medium",
             "Large"});
-            this.cboSize.Location = new System.Drawing.Point(312, 268);
+            this.cboSize.Location = new System.Drawing.Point(198, 271);
             this.cboSize.Name = "cboSize";
             this.cboSize.Size = new System.Drawing.Size(121, 28);
             this.cboSize.TabIndex = 3;
@@ -217,17 +229,17 @@
             "20",
             "50",
             "100"});
-            this.cboPrice.Location = new System.Drawing.Point(567, 268);
+            this.cboPrice.Location = new System.Drawing.Point(453, 271);
             this.cboPrice.Name = "cboPrice";
             this.cboPrice.Size = new System.Drawing.Size(121, 28);
             this.cboPrice.TabIndex = 4;
-            this.cboPrice.Text = "Price";
+            this.cboPrice.Text = "Max Price";
             this.cboPrice.SelectedIndexChanged += new System.EventHandler(this.cboPrice_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(132, 271);
+            this.label1.Location = new System.Drawing.Point(18, 274);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 5;
@@ -256,7 +268,7 @@
             // button3
             // 
             this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button3.Location = new System.Drawing.Point(974, 702);
+            this.button3.Location = new System.Drawing.Point(973, 692);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 38);
             this.button3.TabIndex = 8;
@@ -367,7 +379,7 @@
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(944, 45);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(106, 37);
             this.btnLogin.TabIndex = 13;
@@ -378,7 +390,7 @@
             // btnRegister
             // 
             this.btnRegister.Location = new System.Drawing.Point(944, 105);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(106, 37);
             this.btnRegister.TabIndex = 14;
@@ -390,12 +402,25 @@
             // 
             this.plantsTableAdapter.ClearBeforeFill = true;
             // 
+            // chkShowAll
+            // 
+            this.chkShowAll.AutoSize = true;
+            this.chkShowAll.Enabled = false;
+            this.chkShowAll.Location = new System.Drawing.Point(921, 279);
+            this.chkShowAll.Name = "chkShowAll";
+            this.chkShowAll.Size = new System.Drawing.Size(154, 24);
+            this.chkShowAll.TabIndex = 16;
+            this.chkShowAll.Text = "Show All Listings";
+            this.chkShowAll.UseVisualStyleBackColor = true;
+            this.chkShowAll.CheckedChanged += new System.EventHandler(this.chkShowAll_CheckedChanged);
+            // 
             // frmPlantWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button3;
             this.ClientSize = new System.Drawing.Size(1130, 762);
+            this.Controls.Add(this.chkShowAll);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.groupBox1);
@@ -459,6 +484,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn availabilityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox chkShowAll;
     }
 }
 

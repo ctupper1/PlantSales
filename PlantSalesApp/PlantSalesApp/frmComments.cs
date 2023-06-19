@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlantSalesApp.PlantsDBDataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +14,12 @@ namespace PlantSalesApp
 {
     public partial class frmComments : Form
     {
-        public frmComments()
+
+        private int plantId;
+        public frmComments(int plantId)
         {
             InitializeComponent();
+            this.plantId = plantId;
         }
 
         // Code for default text: https://stackoverflow.com/questions/14544135/how-to-gray-out-default-text-in-textbox
@@ -53,6 +57,21 @@ namespace PlantSalesApp
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Comment newComment = new Comment();
+            //Set plantId of new comment to the plantId of the plant that was selected in frmPlantDetails
+
+            newComment.PlantId = this.plantId;
+            newComment.UserId = Session.UserId;
+            newComment.CommentText = txtComment.Text;
+            newComment.CommentDate = DateTime.Now;
+            //Save comment to comments table in database and close form
+            CommentsDB.AddNewComment(newComment);
+            this.Close();
+
         }
     }
     

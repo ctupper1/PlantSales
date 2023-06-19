@@ -107,11 +107,6 @@ namespace PlantSalesApp
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             handleRegisterForm(false);
@@ -120,6 +115,15 @@ namespace PlantSalesApp
         private void btnRegister_Click(object sender, EventArgs e)
         {
             handleRegisterForm(true);
+        }
+
+        private void enableFormControls(bool e)
+        {
+
+            btnDelete.Enabled = e;
+            btnAddNew.Enabled = e;
+            btnComment.Enabled = e;
+            chkShowAll.Enabled = e;
         }
 
         private void handleRegisterForm(bool newUser)
@@ -135,10 +139,10 @@ namespace PlantSalesApp
                     btnLogin.Text = "Log Out";
                     btnRegister.Visible = false;
 
-                    btnDelete.Enabled = true;
-                    btnAddNew.Enabled = true;
-                    btnComment.Enabled = true;
+                    enableFormControls(true);
                 }
+                // Once user is logged in, show only their listings
+                this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
             }
             else
             {
@@ -148,6 +152,7 @@ namespace PlantSalesApp
                 isUserLoggedIn = false;
                 btnLogin.Text = "Log In";
                 btnRegister.Visible = true;
+                enableFormControls(false);
             }
         }
 
@@ -167,19 +172,12 @@ namespace PlantSalesApp
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dataGridView1.CurrentRow;
-            int selectedRowIndex = selectedRow.Index;
-            //int selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
             // Get userID of user that created currently selected listing
-            // Find userId in first column of selected row
+            // The cell index is found in the datagrid view's tooltip menu
             int listingCreator = (int)selectedRow.Cells[1].Value;
-            if (Session.IsAdmin == 0 && Session.UserId != listingCreator)
-            {
-                MessageBox.Show("You can only delete your own listings.",
-                    "Delete Failed");
-                return;
-            }
-            else if (Session.IsAdmin == 1 || Session.UserId == listingCreator)
+
+            if (Session.IsAdmin == 1 || Session.UserId == listingCreator)
             {
                 // adds simple dialog to accept or deny
                 // https://stackoverflow.com/questions/3036829/how-do-i-create-a-message-box-with-yes-no-choices-and-a-dialogresult
@@ -187,22 +185,38 @@ namespace PlantSalesApp
                     "Delete Listing", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    dataGridView1.Rows.RemoveAt(selectedRowIndex);
+                    dataGridView1.Rows.RemoveAt(selectedRow.Index);
                     this.plantsTableAdapter.Update(this.plantsDBDataSet.Plants);
                 }
+            }
+            else
+            {
+                MessageBox.Show("You can only delete your own listings.",
+                    "Delete Failed");
+                return;
             }
         }
         private void btnComment_Click(object sender, EventArgs e)
         {
-            // probably need to add comments table
-            // fields might need to be:
-            // commentId
-            // userId
-            // plantId
-            // comment
-            // dateTimeAdded
-            frmComments frmComments = new frmComments();
+            //If a row is selected, open the comments form passing in the Id of the selected plant          
+            DataGridViewRow selectedRow = dataGridView1.CurrentRow;
+
+            int plantId = (int)selectedRow.Cells[0].Value;
+
+            frmComments frmComments = new frmComments(plantId);
             frmComments.ShowDialog();
+        }
+
+        private void chkShowAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShowAll.Checked)
+            {
+                this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
+            }
+            else
+            {
+                this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
+            }
         }
     }
 }
