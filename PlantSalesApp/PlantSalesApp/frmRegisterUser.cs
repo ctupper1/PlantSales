@@ -48,8 +48,12 @@ namespace PlantSalesApp
                 }
                 if (user != null) {
                     this.DialogResult = DialogResult.OK;
-                    UserDB.GetUserId(user); 
+
+                    // this throws an error? I will comment it out for now until we figure out
+                    // what to do with it. Are we going to have it check for the admin ID?
+                    // UserDB.GetUserId(user); 
                     //Session.UserId = UserDB.GetUserId(user);                 
+                    
                     this.Close();
                 }
                 else

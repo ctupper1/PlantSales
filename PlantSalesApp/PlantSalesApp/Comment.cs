@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace PlantSalesApp
 {
-    public class Comment    
+    public class Comment
     {
-        private int plantId;
-        private int userId;
-        private string commentText;
+        private int plantID;
+        private int userID;
+        private string commentMsg;
         private DateTime commentDate;
 
-        public int PlantId
+        public int PlantID
         {
-            get { return plantId; }
-            set { plantId = value; }
+            get { return plantID; }
+            set { plantID = value; }
         }
-        public int UserId
+        public int UserID
         {
-            get { return userId; }
-            set { userId = value; }
+            get { return userID; }
+            set { userID = value; }
         }
-        public string CommentText
+        public string CommentMsg
         {
-            get { return commentText; }
-            set { commentText = value; }
+            get { return commentMsg; }
+            set { commentMsg = value; }
         }
         public DateTime CommentDate
         {

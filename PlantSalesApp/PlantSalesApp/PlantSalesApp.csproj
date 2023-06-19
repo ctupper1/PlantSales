@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comment.cs" />
     <Compile Include="frmComments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,7 +77,6 @@
     </Compile>
     <Compile Include="Invoice.cs" />
     <Compile Include="Plant.cs" />
-    <Compile Include="Comment.cs" />
     <Compile Include="UserDB.cs" />
     <Compile Include="PlantsDB.cs" />
     <Compile Include="PlantsDBDataSet.cs">

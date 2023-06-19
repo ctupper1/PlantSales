@@ -22,18 +22,16 @@ namespace PlantSalesApp
 
         public static void AddNewComment(Comment comment)
         {
-            
             SqlConnection connection = GetConnection();
             string insertStatement =
                 "INSERT INTO Comments " +
                 "(PlantID, Comment, UserID, CommentDate) " +
                 "VALUES (@PlantID, @Comment, @UserID, @CommentDate)";
             SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
-            insertCommand.Parameters.AddWithValue("@PlantID", comment.PlantId);
-            insertCommand.Parameters.AddWithValue("@Comment", comment.CommentText);
-            insertCommand.Parameters.AddWithValue("@UserID", comment.UserId);
-            insertCommand.Parameters.AddWithValue("@CommentDate", comment.CommentDate);
-
+            insertCommand.Parameters.AddWithValue("@PlantID", comment.PlantID);
+            insertCommand.Parameters.AddWithValue("@Comment", comment.CommentMsg);
+            insertCommand.Parameters.AddWithValue("@UserID", comment.UserID);
+            insertCommand.Parameters.AddWithValue("@CommentDate", DateTime.Now);
 
             try
             {

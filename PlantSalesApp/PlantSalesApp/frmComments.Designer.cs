@@ -39,7 +39,7 @@
             this.btnSave.Location = new System.Drawing.Point(13, 207);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(159, 35);
+            this.btnSave.Size = new System.Drawing.Size(106, 23);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -50,7 +50,7 @@
             this.btnDelete.Location = new System.Drawing.Point(183, 207);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(159, 35);
+            this.btnDelete.Size = new System.Drawing.Size(106, 23);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -60,8 +60,9 @@
             // 
             this.btnExit.Location = new System.Drawing.Point(1018, 207);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(159, 35);
+            this.btnExit.Size = new System.Drawing.Size(106, 23);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -73,19 +74,20 @@
             this.txtComment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(1162, 170);
+            this.txtComment.Size = new System.Drawing.Size(776, 112);
             this.txtComment.TabIndex = 3;
             // 
             // frmComments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AcceptButton = this.btnSave;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1200, 255);
             this.Controls.Add(this.txtComment);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmComments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comment Form";

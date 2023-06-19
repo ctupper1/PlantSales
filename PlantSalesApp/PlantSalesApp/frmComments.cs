@@ -14,12 +14,11 @@ namespace PlantSalesApp
 {
     public partial class frmComments : Form
     {
-
-        private int plantId;
-        public frmComments(int plantId)
+        public int plantID;
+        public frmComments(int plantID)
         {
+            this.plantID = plantID;
             InitializeComponent();
-            this.plantId = plantId;
         }
 
         // Code for default text: https://stackoverflow.com/questions/14544135/how-to-gray-out-default-text-in-textbox
@@ -48,6 +47,23 @@ namespace PlantSalesApp
             if (txtComment.Text.Trim() == "")
                 txtComment_SetText();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (Validator.IsPresent(txtComment))
+            {
+                Comment newComment = new Comment();
+                
+                newComment.PlantID = plantID;
+                newComment.CommentMsg = txtComment.Text;
+                newComment.UserID = Session.UserId;
+
+                //Add newComment to the database
+                CommentsDB.AddNewComment(newComment);
+                this.Close();
+            }
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             txtComment.Clear();
@@ -57,21 +73,6 @@ namespace PlantSalesApp
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            Comment newComment = new Comment();
-            //Set plantId of new comment to the plantId of the plant that was selected in frmPlantDetails
-
-            newComment.PlantId = this.plantId;
-            newComment.UserId = Session.UserId;
-            newComment.CommentText = txtComment.Text;
-            newComment.CommentDate = DateTime.Now;
-            //Save comment to comments table in database and close form
-            CommentsDB.AddNewComment(newComment);
-            this.Close();
-
         }
     }
     

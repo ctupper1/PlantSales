@@ -39,12 +39,12 @@ namespace PlantSalesApp
             int careDifficultyStart = 1;
             int careDifficultyEnd = 10;
 
-            // type does not want to work
-
             if (cboPrice.SelectedIndex == -1) price = 10000;
             else price = Convert.ToDecimal(cboPrice.SelectedItem);
             if (cboType.SelectedIndex == -1) type = null;
             else type = cboType.SelectedItem.ToString();
+            if (cboSize.SelectedIndex == -1) size = null;
+            else size = cboSize.SelectedItem.ToString();
             if (cboDifficulty.SelectedIndex == -1)
             {
                 careDifficultyStart = 1;
@@ -68,8 +68,6 @@ namespace PlantSalesApp
                     careDifficultyEnd = 10;
                 }
             }
-            if (cboSize.SelectedIndex == -1) size = null;
-            else size = cboSize.SelectedItem.ToString();
             this.plantsTableAdapter.FillByFilters(this.plantsDBDataSet.Plants, price, type, 
                 size, careDifficultyStart, careDifficultyEnd);
         }
@@ -96,10 +94,19 @@ namespace PlantSalesApp
 
         private void btnClearFilters_Click(object sender, EventArgs e)
         {
-            cboPrice.SelectedIndex = -1;
-            cboSize.SelectedIndex = -1;
+            this.ClearFilters();
+        }
+
+        private void ClearFilters()
+        {
             cboType.SelectedIndex = -1;
+            cboType.Text = "Type";
+            cboSize.SelectedIndex = -1;
+            cboSize.Text = "Size";
+            cboPrice.SelectedIndex = -1;
+            cboPrice.Text = "Price";
             cboDifficulty.SelectedIndex = -1;
+            cboDifficulty.Text = "Difficulty";
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -161,12 +168,8 @@ namespace PlantSalesApp
             frmAddNew addNewPlantForm = new frmAddNew(Session.UserId);
             DialogResult result = addNewPlantForm.ShowDialog();
 
-                // this.plantsTableAdapter.Update(this.plantsDBDataSet.Plants);
-                this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
-                cboType.SelectedIndex = -1;
-                cboPrice.SelectedIndex = -1;
-                cboDifficulty.SelectedIndex = -1;
-                cboSize.SelectedIndex = -1;
+            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
+            this.ClearFilters();
 
         }
         private void btnDelete_Click(object sender, EventArgs e)

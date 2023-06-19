@@ -648,7 +648,6 @@ namespace PlantSalesApp {
                 this.columnPlantId.Unique = true;
                 this.columnName.AllowDBNull = false;
                 this.columnName.MaxLength = 255;
-                this.columnType.AllowDBNull = false;
                 this.columnType.MaxLength = 100;
                 this.columnSize.MaxLength = 50;
                 this.columnPrice.AllowDBNull = false;
@@ -1456,7 +1455,12 @@ namespace PlantSalesApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Type {
                 get {
-                    return ((string)(this[this.tablePlants.TypeColumn]));
+                    try {
+                        return ((string)(this[this.tablePlants.TypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'Plants\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablePlants.TypeColumn] = value;
@@ -1600,6 +1604,18 @@ namespace PlantSalesApp {
                 set {
                     this[this.tablePlants.ListedByColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTypeNull() {
+                return this.IsNull(this.tablePlants.TypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTypeNull() {
+                this[this.tablePlants.TypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2348,7 +2364,7 @@ ORDER BY DateAdded DESC";
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(maxPrice));
             if ((type == null)) {
-                throw new global::System.ArgumentNullException("type");
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(type));
@@ -2437,7 +2453,7 @@ ORDER BY DateAdded DESC";
         public virtual int FilterByType(PlantsDBDataSet.PlantsDataTable dataTable, string Type) {
             this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((Type == null)) {
-                throw new global::System.ArgumentNullException("Type");
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Type));
@@ -2491,7 +2507,7 @@ ORDER BY DateAdded DESC";
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Name));
             }
             if ((Original_Type == null)) {
-                throw new global::System.ArgumentNullException("Original_Type");
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Type));
@@ -2573,7 +2589,7 @@ ORDER BY DateAdded DESC";
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
             }
             if ((Type == null)) {
-                throw new global::System.ArgumentNullException("Type");
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Type));
@@ -2677,7 +2693,7 @@ ORDER BY DateAdded DESC";
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
             }
             if ((Type == null)) {
-                throw new global::System.ArgumentNullException("Type");
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Type));
@@ -2739,7 +2755,7 @@ ORDER BY DateAdded DESC";
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Name));
             }
             if ((Original_Type == null)) {
-                throw new global::System.ArgumentNullException("Original_Type");
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Type));
