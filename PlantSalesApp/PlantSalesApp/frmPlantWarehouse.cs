@@ -145,11 +145,10 @@ namespace PlantSalesApp
                     isUserLoggedIn = true;
                     btnLogin.Text = "Log Out";
                     btnRegister.Visible = false;
+                    this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
 
                     enableFormControls(true);
                 }
-                // Once user is logged in, show only their listings
-                this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
             }
             else
             {

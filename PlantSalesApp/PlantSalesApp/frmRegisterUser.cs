@@ -51,7 +51,7 @@ namespace PlantSalesApp
 
                     // this throws an error? I will comment it out for now until we figure out
                     // what to do with it. Are we going to have it check for the admin ID?
-                    // UserDB.GetUserId(user); 
+                    UserDB.GetUserId(user); 
                     //Session.UserId = UserDB.GetUserId(user);                 
                     
                     this.Close();
