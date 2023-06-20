@@ -30,53 +30,6 @@ namespace PlantSalesApp
             this.txtComment.Enter += new EventHandler(txtComment_Enter);
             this.txtComment.Leave += new EventHandler(txtComment_Leave);
             txtComment_SetText();
-
-            // Execute the parameterized query to retrieve comments for the specified plant ID
-            //string connectionString = "Data Source=localhost\\sqlexpress;Initial Catalog=PlantsDB;Integrated Security=True";
-            //using (SqlConnection connection = new SqlConnection(connectionString))
-            //{
-            //    string query = "SELECT CommentID, PlantID, Comment, UserID, CommentDate FROM dbo.Comments WHERE PlantID = @PlantID";
-
-            //    SqlCommand command = new SqlCommand(query, connection);
-            //    command.Parameters.AddWithValue("@PlantID", plantID);
-
-            //    try
-            //    {
-            //        connection.Open();
-            //        SqlDataReader reader = command.ExecuteReader();
-
-            //        while (reader.Read())
-            //        {
-            //            int commentID = (int)reader["CommentID"];
-            //            int retrievedPlantID = (int)reader["PlantID"];
-            //            string comment = reader["Comment"].ToString();
-            //            int userID = (int)reader["UserID"];
-            //            DateTime commentDate = (DateTime)reader["CommentDate"];
-
-            //            // Source for 57-58: https://stackoverflow.com/questions/20520966/additional-information-unable-to-cast-object-of-type-system-windows-forms-bind
-            //            // Source for 61-68: https://stackoverflow.com/questions/8708057/rows-cannot-be-programmatically-added-to-the-datagridviews-row-collection-when
-            //            var bindingSource = this.commentsBindingSource;
-            //            var dt = (DataTable)bindingSource.DataSource;
-
-            //            DataRow dataRow = dt.NewRow();
-
-            //            dataRow["ID"] = commentID;
-            //            dataRow["Comment"] = comment;
-            //            dataRow["Date"] = commentDate;
-
-            //            dt.Rows.Add(dataRow);
-            //            dt.AcceptChanges();
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.ToString(), "Error");
-            //    }
-            //    finally
-            //    {
-            //        connection.Close();
-            //    }
-            //}
         }
 
         // Code for default text: https://stackoverflow.com/questions/14544135/how-to-gray-out-default-text-in-textbox
@@ -117,8 +70,30 @@ namespace PlantSalesApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            txtComment.Clear();
-            txtComment_SetText();
+            DataGridViewRow selectedRow = commentsDataGridView.CurrentRow;
+
+            // Get userID of user that created currently selected listing
+            // The cell index is found in the datagrid view's tooltip menu
+            int listingCreator = (int)selectedRow.Cells[0].Value;
+
+            if (Session.IsAdmin == true || Session.UserId == listingCreator)
+            {
+                // adds simple dialog to accept or deny
+                // https://stackoverflow.com/questions/3036829/how-do-i-create-a-message-box-with-yes-no-choices-and-a-dialogresult
+                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this listing?",
+                    "Delete Listing", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    commentsDataGridView.Rows.RemoveAt(selectedRow.Index);
+                    this.commentsTableAdapter.Update(this.plantsDBDataSet.Comments);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You can only delete your own listings.",
+                    "Delete Failed");
+                return;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

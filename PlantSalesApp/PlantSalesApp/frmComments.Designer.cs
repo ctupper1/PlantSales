@@ -123,6 +123,7 @@
             this.commentsDataGridView.DataSource = this.commentsBindingSource;
             this.commentsDataGridView.Location = new System.Drawing.Point(13, 28);
             this.commentsDataGridView.Name = "commentsDataGridView";
+            this.commentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.commentsDataGridView.Size = new System.Drawing.Size(796, 185);
             this.commentsDataGridView.TabIndex = 5;
             // 
