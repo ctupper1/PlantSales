@@ -96,7 +96,7 @@ namespace PlantSalesApp
                 {
                     //Set userId and isAdmin to results of select statement
                     Session.UserId= (int)reader["UserId"];
-                    Session.IsAdmin = (int)reader["IsAdmin"];
+                    Session.IsAdmin = (bool)reader["IsAdmin"];
                 }
                 //userId = (int)selectCommand.ExecuteScalar();
             }

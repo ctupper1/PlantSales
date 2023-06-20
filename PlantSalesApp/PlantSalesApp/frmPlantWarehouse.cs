@@ -104,9 +104,10 @@ namespace PlantSalesApp
             cboSize.SelectedIndex = -1;
             cboSize.Text = "Size";
             cboPrice.SelectedIndex = -1;
-            cboPrice.Text = "Price";
+            cboPrice.Text = "Max Price";
             cboDifficulty.SelectedIndex = -1;
             cboDifficulty.Text = "Difficulty";
+            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -179,7 +180,7 @@ namespace PlantSalesApp
             // The cell index is found in the datagrid view's tooltip menu
             int listingCreator = (int)selectedRow.Cells[1].Value;
 
-            if (Session.IsAdmin == 1 || Session.UserId == listingCreator)
+            if (Session.IsAdmin == true || Session.UserId == listingCreator)
             {
                 // adds simple dialog to accept or deny
                 // https://stackoverflow.com/questions/3036829/how-do-i-create-a-message-box-with-yes-no-choices-and-a-dialogresult
