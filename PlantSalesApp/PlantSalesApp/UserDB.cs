@@ -13,6 +13,42 @@ namespace PlantSalesApp
 {
     public static class UserDB
     {
+
+        public static bool CheckIfUsernameExists(string username)
+        {
+            SqlConnection connection = PlantsDB.GetConnection();
+            string selectStatement =
+                "SELECT Username, Password " +
+                "FROM Users " +
+                "WHERE Username = @Username";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.Parameters.AddWithValue("@Username", username);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
+                if (reader.Read())
+                {
+                    username = (string)reader["Username"].ToString();
+                }
+                else
+                {
+                    username = null;
+                }
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            if (username != null) return true;
+            else return false;
+        }
         public static User CheckUserLogin(string username, string password)
         {
             User user = new User();
@@ -95,7 +131,7 @@ namespace PlantSalesApp
                 if (reader.Read())
                 {
                     //Set userId and isAdmin to results of select statement
-                    Session.UserId= (int)reader["UserId"];
+                    Session.UserId = (int)reader["UserId"];
                     Session.IsAdmin = (bool)reader["IsAdmin"];
                 }
                 //userId = (int)selectCommand.ExecuteScalar();

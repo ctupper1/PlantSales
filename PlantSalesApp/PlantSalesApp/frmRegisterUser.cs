@@ -38,14 +38,24 @@ namespace PlantSalesApp
         {
             try
             {
-                User user = new User();
+                User user = null;
                 if (!isRegister) user = UserDB.CheckUserLogin(txtUsername.Text, txtPassword.Text);
                 else
                 {
-                    user.Username = txtUsername.Text;
-                    user.Password = txtPassword.Text;
-                    UserDB.RegisterUser(user);
+                    if (!UserDB.CheckIfUsernameExists(txtUsername.Text))
+                    {
+                        user = new User();
+                        user.Username = txtUsername.Text;
+                        user.Password = txtPassword.Text;
+                        UserDB.RegisterUser(user);
+                    } else
+                    {
+                        MessageBox.Show("Please enter a different username ",
+                            "Username Exists");
+                    }
                 }
+
+
                 if (user != null) {
                     this.DialogResult = DialogResult.OK;
 
@@ -56,7 +66,7 @@ namespace PlantSalesApp
                     
                     this.Close();
                 }
-                else
+                else if(!isRegister)
                 {
                     MessageBox.Show(
                         "Please enter a valid username and password.",
