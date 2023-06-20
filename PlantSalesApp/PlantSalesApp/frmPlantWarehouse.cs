@@ -131,6 +131,7 @@ namespace PlantSalesApp
             btnDelete.Enabled = e;
             btnAddNew.Enabled = e;
             btnComment.Enabled = e;
+            chkShowAll.Checked = false;
             chkShowAll.Enabled = e;
         }
 
@@ -149,6 +150,7 @@ namespace PlantSalesApp
                     this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
 
                     enableFormControls(true);
+                    btnDeleteUser.Visible = true;
                 }
             }
             else
@@ -160,6 +162,7 @@ namespace PlantSalesApp
                 btnLogin.Text = "Log In";
                 btnRegister.Visible = true;
                 enableFormControls(false);
+                this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
             }
         }
 
@@ -220,6 +223,15 @@ namespace PlantSalesApp
             {
                 this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
             }
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(
+            //    "You are about to delete your account. This action cannot be undone.",
+            //                   "Delete User", MessageBoxButtons.);
+            //DialogResult
+            //UserDB.DeleteUser(Session.UserId);
         }
     }
 }
