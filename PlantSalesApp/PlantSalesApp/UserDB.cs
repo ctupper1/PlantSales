@@ -159,7 +159,6 @@ namespace PlantSalesApp
             {
                 connection.Open();
                 deleteCommand.ExecuteNonQuery();
-                //MessageBox.Show("User " + Session.UserId.ToString() + " deleted successfully");
             }
             catch (SqlException ex)
             {

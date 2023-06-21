@@ -1,4 +1,4 @@
-INSERT INTO Plants (Name, Type, Size, Price, Description, ListedBy, DateAdded, CareDifficulty, CareDetails)
+INSERT INTO Plants (Name, Type, Size, Price, Description, UserId, DateAdded, CareDifficulty, CareDetails)
 VALUES
     ('Aloe Vera', 'Succulent', 'Small', 12.99, 'Popular succulent with medicinal properties', 2, GETDATE(), 4, 'Water sparingly, requires well-draining soil'),
     ('Jasmine', 'Flowering', 'Medium', 19.99, 'Fragrant flowers used in perfumes and teas', 3, GETDATE(), 6, 'Prefers bright indirect light and regular watering'),
@@ -11,23 +11,23 @@ VALUES
     ('Rose', 'Flowering', 'Medium', 17.99, 'Classic flower known for its beauty and fragrance', 4, GETDATE(), 8, 'Prefers full sun, prune regularly'),
     ('Chili Pepper', 'Edible', 'Small', 7.99, 'Spicy pepper used in various culinary dishes', 3, GETDATE(), 7, 'Full sun, moderate watering, well-draining soil'),
     ('Succulent Mix', 'Succulent', 'Small', 11.99, 'Assortment of different succulent varieties', 1, GETDATE(), 4, 'Water sparingly, prefers bright light'),
-    ('Fiddle Leaf Fig', 'Flowering', 'Large', 49.99, 'Trendy plant with large, violin-shaped leaves', 2, 5, 'Requires bright indirect light, water when topsoil is dry', DATEADD(day, -7, GETDATE())),
-    ('Strawberry Plant', 'Edible', 'Small', 6.99, 'Produces sweet and juicy strawberries', 1, 4, 'Full sun, regular watering, well-draining soil', DATEADD(day, -10, GETDATE())),
-    ('Spider Plant', 'Air-Plant', 'Small', 12.99, 'Easy-to-care-for plant with arching variegated leaves', 3, 2, 'Thrives in bright indirect light, water moderately', DATEADD(day, -15, GETDATE())),
-    ('Lavender', 'Flowering', 'Medium', 14.99, 'Fragrant herb with purple flowers', 4, 3, 'Prefers full sun, well-draining soil, occasional pruning', DATEADD(day, -3, GETDATE())),
-    ('Money Tree', 'Flowering', 'Medium', 19.99, 'Plant with braided trunk and glossy leaves', 2, 4, 'Indirect light, water when topsoil is dry', DATEADD(day, -8, GETDATE())),
-    ('Basil', 'Edible', 'Small', 6.99, 'Popular herb used in cooking and pesto', 1, 2, 'Full sun, regular watering, well-draining soil', DATEADD(day, -12, GETDATE())),
-    ('Jade Plant', 'Succulent', 'Medium', 24.99, 'Thick, fleshy leaves and a tree-like appearance', 3, 6, 'Bright light, infrequent watering, well-draining soil', DATEADD(day, -5, GETDATE())),
-    ('Snake Plant', 'Flowering', 'Small', 9.99, 'Low maintenance plant with upright leaves', 4, 3, 'Tolerates low light, water sparingly', DATEADD(day, -20, GETDATE())),
-    ('Mint', 'Edible', 'Small', 7.99, 'Aromatic herb commonly used in beverages and desserts', 1, 2, 'Partial shade, regular watering, moist soil', DATEADD(day, -25, GETDATE())),
-    ('Pothos', 'Air-Plant', 'Medium', 16.99, 'Trailing plant with heart-shaped leaves', 2, 4, 'Thrives in low to bright indirect light, water moderately', DATEADD(day, -17, GETDATE()));
+    ('Fiddle Leaf Fig', 'Flowering', 'Large', 49.99, 'Trendy plant with large, violin-shaped leaves', 2, DATEADD(day, -7, GETDATE()), 5, 'Requires bright indirect light, water when topsoil is dry'),
+    ('Strawberry Plant', 'Edible', 'Small', 6.99, 'Produces sweet and juicy strawberries', 1, DATEADD(day, -10, GETDATE()), 4, 'Full sun, regular watering, well-draining soil'),
+    ('Spider Plant', 'Air-Plant', 'Small', 12.99, 'Easy-to-care-for plant with arching variegated leaves', 3, DATEADD(day, -15, GETDATE()), 2, 'Thrives in bright indirect light, water moderately'),
+    ('Lavender', 'Flowering', 'Medium', 14.99, 'Fragrant herb with purple flowers', 4, DATEADD(day, -3, GETDATE()), 3, 'Prefers full sun, well-draining soil, occasional pruning'),
+    ('Money Tree', 'Flowering', 'Medium', 19.99, 'Plant with braided trunk and glossy leaves', 2, DATEADD(day, -8, GETDATE()), 4, 'Indirect light, water when topsoil is dry'),
+    ('Basil', 'Edible', 'Small', 6.99, 'Popular herb used in cooking and pesto', 1, DATEADD(day, -12, GETDATE()), 2, 'Full sun, regular watering, well-draining soil'),
+    ('Jade Plant', 'Succulent', 'Medium', 24.99, 'Thick, fleshy leaves and a tree-like appearance', 3, DATEADD(day, -5, GETDATE()), 6, 'Bright light, infrequent watering, well-draining soil'),
+    ('Snake Plant', 'Flowering', 'Small', 9.99, 'Low maintenance plant with upright leaves', 4, DATEADD(day, -20, GETDATE()), 3, 'Tolerates low light, water sparingly'),
+    ('Mint', 'Edible', 'Small', 7.99, 'Aromatic herb commonly used in beverages and desserts', 1, DATEADD(day, -25, GETDATE()), 2, 'Partial shade, regular watering, moist soil'),
+    ('Pothos', 'Air-Plant', 'Medium', 16.99, 'Trailing plant with heart-shaped leaves', 2, DATEADD(day, -17, GETDATE()), 4, 'Thrives in low to bright indirect light, water moderately');
 
 
-INSERT INTO Users (Username, Password, IsAdmin)
-VALUES ('User1', 'password1', 0),
-		('User2', 'password2', 0),
-		('User3', 'password3', 0),
-		('Admin', 'adminpass', 1);
+--INSERT INTO Users (Username, Password, IsAdmin)
+--VALUES ('User1', 'password1', 0),
+--		('User2', 'password2', 0),
+--		('User3', 'password3', 0),
+--		('Admin', 'adminpass', 1);
 
 
 INSERT INTO Comments (PlantID, Comment, UserID, CommentDate)
