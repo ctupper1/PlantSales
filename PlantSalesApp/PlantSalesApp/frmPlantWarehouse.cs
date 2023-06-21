@@ -117,12 +117,12 @@ namespace PlantSalesApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            handleRegisterForm(false);
+            handleRegisterForm(false, false);
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            handleRegisterForm(true);
+            handleRegisterForm(true, false);
         }
 
         private void enableFormControls(bool e)
@@ -135,7 +135,7 @@ namespace PlantSalesApp
             chkShowAll.Enabled = e;
         }
 
-        private void handleRegisterForm(bool newUser)
+        private void handleRegisterForm(bool newUser, bool userDeleted)
         {
             if (!isUserLoggedIn)
             {
@@ -147,20 +147,30 @@ namespace PlantSalesApp
                     isUserLoggedIn = true;
                     btnLogin.Text = "Log Out";
                     btnRegister.Visible = false;
+                    btnDeleteUser.Visible = true;
                     this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
 
                     enableFormControls(true);
-                    btnDeleteUser.Visible = true;
                 }
             }
             else
             {
-                MessageBox.Show(
-                        "You are now logged out.",
+                if (userDeleted)
+                {
+                    MessageBox.Show(
+                        "Your user and all listings have been deleted. \r\n" +
+                        "You are logged out now.",
+                        "User Delete");
+                } else
+                {
+                    MessageBox.Show(
+                        "You are logged out now.",
                         "User Logged Out");
+                }
                 isUserLoggedIn = false;
                 btnLogin.Text = "Log In";
                 btnRegister.Visible = true;
+                btnDeleteUser.Visible = false;
                 enableFormControls(false);
                 this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
             }
@@ -217,7 +227,7 @@ namespace PlantSalesApp
         {
             if (chkShowAll.Checked)
             {
-                this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
+                filterDataGrid();
             }
             else
             {
@@ -233,9 +243,7 @@ namespace PlantSalesApp
             if (confirmDelete == DialogResult.OK) 
             { 
                 UserDB.DeleteUser(Session.UserId);
-                MessageBox.Show("User " + Session.UserId.ToString() + " deleted successfully");
-                btnDeleteUser.Visible = false;
-                handleRegisterForm(false);
+                handleRegisterForm(false, true);
             }
 
         }
