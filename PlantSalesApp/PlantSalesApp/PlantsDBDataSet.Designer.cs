@@ -385,7 +385,7 @@ namespace PlantSalesApp {
             
             private global::System.Data.DataColumn columnCareDetails;
             
-            private global::System.Data.DataColumn columnListedBy;
+            private global::System.Data.DataColumn columnUserId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -510,9 +510,9 @@ namespace PlantSalesApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ListedByColumn {
+            public global::System.Data.DataColumn UserIdColumn {
                 get {
-                    return this.columnListedBy;
+                    return this.columnUserId;
                 }
             }
             
@@ -553,7 +553,7 @@ namespace PlantSalesApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PlantsRow AddPlantsRow(string Name, string Type, string Size, decimal Price, string Colors, string Description, string Availability, System.DateTime DateAdded, int CareDifficulty, string CareDetails, int ListedBy) {
+            public PlantsRow AddPlantsRow(string Name, string Type, string Size, decimal Price, string Colors, string Description, string Availability, System.DateTime DateAdded, int CareDifficulty, string CareDetails, int UserId) {
                 PlantsRow rowPlantsRow = ((PlantsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -567,7 +567,7 @@ namespace PlantSalesApp {
                         DateAdded,
                         CareDifficulty,
                         CareDetails,
-                        ListedBy};
+                        UserId};
                 rowPlantsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPlantsRow);
                 return rowPlantsRow;
@@ -608,7 +608,7 @@ namespace PlantSalesApp {
                 this.columnDateAdded = base.Columns["DateAdded"];
                 this.columnCareDifficulty = base.Columns["CareDifficulty"];
                 this.columnCareDetails = base.Columns["CareDetails"];
-                this.columnListedBy = base.Columns["ListedBy"];
+                this.columnUserId = base.Columns["UserId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -636,8 +636,8 @@ namespace PlantSalesApp {
                 base.Columns.Add(this.columnCareDifficulty);
                 this.columnCareDetails = new global::System.Data.DataColumn("CareDetails", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCareDetails);
-                this.columnListedBy = new global::System.Data.DataColumn("ListedBy", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnListedBy);
+                this.columnUserId = new global::System.Data.DataColumn("UserId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPlantId}, true));
                 this.columnPlantId.AutoIncrement = true;
@@ -648,6 +648,7 @@ namespace PlantSalesApp {
                 this.columnPlantId.Unique = true;
                 this.columnName.AllowDBNull = false;
                 this.columnName.MaxLength = 255;
+                this.columnType.AllowDBNull = false;
                 this.columnType.MaxLength = 100;
                 this.columnSize.MaxLength = 50;
                 this.columnPrice.AllowDBNull = false;
@@ -655,6 +656,7 @@ namespace PlantSalesApp {
                 this.columnDescription.MaxLength = 2147483647;
                 this.columnAvailability.MaxLength = 20;
                 this.columnCareDetails.MaxLength = 2147483647;
+                this.columnUserId.Caption = "ListedBy";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1455,12 +1457,7 @@ namespace PlantSalesApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Type {
                 get {
-                    try {
-                        return ((string)(this[this.tablePlants.TypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'Plants\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tablePlants.TypeColumn]));
                 }
                 set {
                     this[this.tablePlants.TypeColumn] = value;
@@ -1592,30 +1589,18 @@ namespace PlantSalesApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ListedBy {
+            public int UserId {
                 get {
                     try {
-                        return ((int)(this[this.tablePlants.ListedByColumn]));
+                        return ((int)(this[this.tablePlants.UserIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ListedBy\' in table \'Plants\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserId\' in table \'Plants\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePlants.ListedByColumn] = value;
+                    this[this.tablePlants.UserIdColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTypeNull() {
-                return this.IsNull(this.tablePlants.TypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTypeNull() {
-                this[this.tablePlants.TypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1704,14 +1689,14 @@ namespace PlantSalesApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsListedByNull() {
-                return this.IsNull(this.tablePlants.ListedByColumn);
+            public bool IsUserIdNull() {
+                return this.IsNull(this.tablePlants.UserIdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetListedByNull() {
-                this[this.tablePlants.ListedByColumn] = global::System.Convert.DBNull;
+            public void SetUserIdNull() {
+                this[this.tablePlants.UserIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2194,11 +2179,11 @@ namespace PlantSalesApp.PlantsDBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("DateAdded", "DateAdded");
             tableMapping.ColumnMappings.Add("CareDifficulty", "CareDifficulty");
             tableMapping.ColumnMappings.Add("CareDetails", "CareDetails");
-            tableMapping.ColumnMappings.Add("ListedBy", "ListedBy");
+            tableMapping.ColumnMappings.Add("ListedBy", "UserId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Plants] WHERE (([PlantId] = @Original_PlantId) AND ([Name] = @Original_Name) AND ([Type] = @Original_Type) AND ((@IsNull_Size = 1 AND [Size] IS NULL) OR ([Size] = @Original_Size)) AND ([Price] = @Original_Price) AND ((@IsNull_Colors = 1 AND [Colors] IS NULL) OR ([Colors] = @Original_Colors)) AND ((@IsNull_Availability = 1 AND [Availability] IS NULL) OR ([Availability] = @Original_Availability)) AND ((@IsNull_CareDifficulty = 1 AND [CareDifficulty] IS NULL) OR ([CareDifficulty] = @Original_CareDifficulty)) AND ((@IsNull_DateAdded = 1 AND [DateAdded] IS NULL) OR ([DateAdded] = @Original_DateAdded)) AND ((@IsNull_ListedBy = 1 AND [ListedBy] IS NULL) OR ([ListedBy] = @Original_ListedBy)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Plants] WHERE (([PlantId] = @Original_PlantId) AND ([Name] = @Original_Name) AND ([Type] = @Original_Type) AND ((@IsNull_Size = 1 AND [Size] IS NULL) OR ([Size] = @Original_Size)) AND ([Price] = @Original_Price) AND ((@IsNull_Colors = 1 AND [Colors] IS NULL) OR ([Colors] = @Original_Colors)) AND ((@IsNull_Availability = 1 AND [Availability] IS NULL) OR ([Availability] = @Original_Availability)) AND ((@IsNull_CareDifficulty = 1 AND [CareDifficulty] IS NULL) OR ([CareDifficulty] = @Original_CareDifficulty)) AND ((@IsNull_DateAdded = 1 AND [DateAdded] IS NULL) OR ([DateAdded] = @Original_DateAdded)) AND ((@IsNull_ListedBy = 1 AND [UserId] IS NULL) OR ([UserId] = @Original_ListedBy)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PlantId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PlantId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2218,8 +2203,8 @@ namespace PlantSalesApp.PlantsDBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ListedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ListedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Plants] ([Name], [Type], [Size], [Price], [Colors], [Description], [Availability], [CareDetails], [CareDifficulty], [DateAdded], [ListedBy]) VALUES (@Name, @Type, @Size, @Price, @Colors, @Description, @Availability, @CareDetails, @CareDifficulty, @DateAdded, @ListedBy);
-SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, CareDetails, CareDifficulty, DateAdded, ListedBy FROM Plants WHERE (PlantId = SCOPE_IDENTITY()) ORDER BY DateAdded DESC";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Plants] ([Name], [Type], [Size], [Price], [Colors], [Description], [Availability], [CareDetails], [CareDifficulty], [DateAdded], [UserId]) VALUES (@Name, @Type, @Size, @Price, @Colors, @Description, @Availability, @CareDetails, @CareDifficulty, @DateAdded, @ListedBy);
+SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, CareDetails, CareDifficulty, DateAdded, UserId AS 'ListedBy' FROM Plants WHERE (PlantId = SCOPE_IDENTITY()) ORDER BY DateAdded DESC";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2234,8 +2219,8 @@ SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, Care
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ListedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ListedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Plants] SET [Name] = @Name, [Type] = @Type, [Size] = @Size, [Price] = @Price, [Colors] = @Colors, [Description] = @Description, [Availability] = @Availability, [CareDetails] = @CareDetails, [CareDifficulty] = @CareDifficulty, [DateAdded] = @DateAdded, [ListedBy] = @ListedBy WHERE (([PlantId] = @Original_PlantId) AND ([Name] = @Original_Name) AND ([Type] = @Original_Type) AND ((@IsNull_Size = 1 AND [Size] IS NULL) OR ([Size] = @Original_Size)) AND ([Price] = @Original_Price) AND ((@IsNull_Colors = 1 AND [Colors] IS NULL) OR ([Colors] = @Original_Colors)) AND ((@IsNull_Availability = 1 AND [Availability] IS NULL) OR ([Availability] = @Original_Availability)) AND ((@IsNull_CareDifficulty = 1 AND [CareDifficulty] IS NULL) OR ([CareDifficulty] = @Original_CareDifficulty)) AND ((@IsNull_DateAdded = 1 AND [DateAdded] IS NULL) OR ([DateAdded] = @Original_DateAdded)) AND ((@IsNull_ListedBy = 1 AND [ListedBy] IS NULL) OR ([ListedBy] = @Original_ListedBy)));
-SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, CareDetails, CareDifficulty, DateAdded, ListedBy FROM Plants WHERE (PlantId = @PlantId) ORDER BY DateAdded DESC";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Plants] SET [Name] = @Name, [Type] = @Type, [Size] = @Size, [Price] = @Price, [Colors] = @Colors, [Description] = @Description, [Availability] = @Availability, [CareDetails] = @CareDetails, [CareDifficulty] = @CareDifficulty, [DateAdded] = @DateAdded, [UserId] = @ListedBy WHERE (([PlantId] = @Original_PlantId) AND ([Name] = @Original_Name) AND ([Type] = @Original_Type) AND ((@IsNull_Size = 1 AND [Size] IS NULL) OR ([Size] = @Original_Size)) AND ([Price] = @Original_Price) AND ((@IsNull_Colors = 1 AND [Colors] IS NULL) OR ([Colors] = @Original_Colors)) AND ((@IsNull_Availability = 1 AND [Availability] IS NULL) OR ([Availability] = @Original_Availability)) AND ((@IsNull_CareDifficulty = 1 AND [CareDifficulty] IS NULL) OR ([CareDifficulty] = @Original_CareDifficulty)) AND ((@IsNull_DateAdded = 1 AND [DateAdded] IS NULL) OR ([DateAdded] = @Original_DateAdded)) AND ((@IsNull_ListedBy = 1 AND [UserId] IS NULL) OR ([UserId] = @Original_ListedBy)));
+SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, CareDetails, CareDifficulty, DateAdded, UserId AS 'ListedBy' FROM Plants WHERE (PlantId = @PlantId) ORDER BY DateAdded DESC";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2281,17 +2266,12 @@ SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, Care
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, CareD" +
-                "etails, CareDifficulty, DateAdded, ListedBy FROM Plants ORDER BY DateAdded DESC";
+                "etails, CareDifficulty, DateAdded, UserId AS \'ListedBy\' FROM Plants ORDER BY Dat" +
+                "eAdded DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        PlantId, Name, Type, Size, Price, Colors, Description, Availability, CareDetails, CareDifficulty, DateAdded, ListedBy
-FROM            Plants
-WHERE        (Price < @maxPrice) AND (Type = @type) AND (Size = @size) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) OR
-                         (Price < @maxPrice) AND (Size = @size) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) AND (@type IS NULL) OR
-                         (Price < @maxPrice) AND (Type = @type) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) AND (@size IS NULL) OR
-                         (Price < @maxPrice) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) AND (@type IS NULL) AND (@size IS NULL)
-ORDER BY DateAdded DESC";
+            this._commandCollection[1].CommandText = @"SELECT Availability, CareDetails, CareDifficulty, Colors, DateAdded, Description, Name, PlantId, Price, Size, Type FROM Plants WHERE (Price < @maxPrice) AND (Type = @type) AND (Size = @size) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) OR (Price < @maxPrice) AND (Size = @size) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) AND (@type IS NULL) OR (Price < @maxPrice) AND (Type = @type) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) AND (@size IS NULL) OR (Price < @maxPrice) AND (CareDifficulty BETWEEN @careDifficultyStart AND @careDifficultyEnd) AND (@type IS NULL) AND (@size IS NULL) ORDER BY DateAdded DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@maxPrice", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2300,29 +2280,27 @@ ORDER BY DateAdded DESC";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@careDifficultyEnd", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CareDifficulty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT PlantId, Name, Type, Size, Price, Colors, Description, Availability, CareD" +
-                "etails, CareDifficulty, DateAdded, ListedBy \r\nFROM Plants \r\nWHERE ListedBy = @Us" +
-                "erId\r\nORDER BY DateAdded DESC";
+            this._commandCollection[2].CommandText = "SELECT Availability, CareDetails, CareDifficulty, Colors, DateAdded, Description," +
+                " Name, PlantId, Price, Size, Type FROM Plants WHERE (UserId = @UserId) ORDER BY " +
+                "DateAdded DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ListedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT Availability, CareDetails, CareDifficulty, Colors, DateAdded, Description," +
-                " Name, PlantId, Price, Size, Type, ListedBy FROM Plants WHERE (Price < @maxPrice" +
-                ")";
+                " Name, PlantId, Price, Size, Type FROM Plants WHERE (Price < @maxPrice)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@maxPrice", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT Availability, CareDetails, CareDifficulty, Colors, DateAdded, Description," +
-                " Name, PlantId, Price, Size, Type, ListedBy FROM Plants WHERE (Size = @Size)";
+                " Name, PlantId, Price, Size, Type FROM Plants WHERE (Size = @Size)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Size", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Size", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "SELECT Availability, CareDetails, CareDifficulty, Colors, DateAdded, Description," +
-                " Name, PlantId, Price, Size, Type, ListedBy FROM Plants WHERE (Type LIKE @Type +" +
-                " \'%\')";
+                " Name, PlantId, Price, Size, Type FROM Plants WHERE (Type LIKE @Type + \'%\')";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
@@ -2364,7 +2342,7 @@ ORDER BY DateAdded DESC";
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(maxPrice));
             if ((type == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("type");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(type));
@@ -2453,7 +2431,7 @@ ORDER BY DateAdded DESC";
         public virtual int FilterByType(PlantsDBDataSet.PlantsDataTable dataTable, string Type) {
             this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((Type == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Type");
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Type));
@@ -2498,7 +2476,7 @@ ORDER BY DateAdded DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PlantId, string Original_Name, string Original_Type, string Original_Size, decimal Original_Price, string Original_Colors, string Original_Availability, global::System.Nullable<int> Original_CareDifficulty, global::System.Nullable<global::System.DateTime> Original_DateAdded, global::System.Nullable<int> Original_ListedBy) {
+        public virtual int Delete(int Original_PlantId, string Original_Name, string Original_Type, string Original_Size, decimal Original_Price, string Original_Colors, string Original_Availability, global::System.Nullable<int> Original_CareDifficulty, global::System.Nullable<global::System.DateTime> Original_DateAdded, int Original_ListedBy) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PlantId));
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
@@ -2507,7 +2485,7 @@ ORDER BY DateAdded DESC";
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Name));
             }
             if ((Original_Type == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Type");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Type));
@@ -2553,14 +2531,8 @@ ORDER BY DateAdded DESC";
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Original_ListedBy.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(Original_ListedBy.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(Original_ListedBy));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2581,7 +2553,7 @@ ORDER BY DateAdded DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Type, string Size, decimal Price, string Colors, string Description, string Availability, string CareDetails, global::System.Nullable<int> CareDifficulty, global::System.Nullable<global::System.DateTime> DateAdded, global::System.Nullable<int> ListedBy) {
+        public virtual int Insert(string Name, string Type, string Size, decimal Price, string Colors, string Description, string Availability, string CareDetails, global::System.Nullable<int> CareDifficulty, global::System.Nullable<global::System.DateTime> DateAdded, int ListedBy) {
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
             }
@@ -2589,7 +2561,7 @@ ORDER BY DateAdded DESC";
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
             }
             if ((Type == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Type");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Type));
@@ -2637,12 +2609,7 @@ ORDER BY DateAdded DESC";
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((ListedBy.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(ListedBy.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(ListedBy));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2674,7 +2641,7 @@ ORDER BY DateAdded DESC";
                     string CareDetails, 
                     global::System.Nullable<int> CareDifficulty, 
                     global::System.Nullable<global::System.DateTime> DateAdded, 
-                    global::System.Nullable<int> ListedBy, 
+                    int ListedBy, 
                     int Original_PlantId, 
                     string Original_Name, 
                     string Original_Type, 
@@ -2684,7 +2651,7 @@ ORDER BY DateAdded DESC";
                     string Original_Availability, 
                     global::System.Nullable<int> Original_CareDifficulty, 
                     global::System.Nullable<global::System.DateTime> Original_DateAdded, 
-                    global::System.Nullable<int> Original_ListedBy, 
+                    int Original_ListedBy, 
                     int PlantId) {
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
@@ -2693,7 +2660,7 @@ ORDER BY DateAdded DESC";
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
             }
             if ((Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Type");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Type));
@@ -2741,12 +2708,7 @@ ORDER BY DateAdded DESC";
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((ListedBy.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(ListedBy.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(ListedBy));
             this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_PlantId));
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
@@ -2755,7 +2717,7 @@ ORDER BY DateAdded DESC";
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Name));
             }
             if ((Original_Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_Type");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Type));
@@ -2801,14 +2763,8 @@ ORDER BY DateAdded DESC";
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((Original_ListedBy.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_ListedBy.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_ListedBy));
             this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(PlantId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2841,7 +2797,7 @@ ORDER BY DateAdded DESC";
                     string CareDetails, 
                     global::System.Nullable<int> CareDifficulty, 
                     global::System.Nullable<global::System.DateTime> DateAdded, 
-                    global::System.Nullable<int> ListedBy, 
+                    int ListedBy, 
                     int Original_PlantId, 
                     string Original_Name, 
                     string Original_Type, 
@@ -2851,7 +2807,7 @@ ORDER BY DateAdded DESC";
                     string Original_Availability, 
                     global::System.Nullable<int> Original_CareDifficulty, 
                     global::System.Nullable<global::System.DateTime> Original_DateAdded, 
-                    global::System.Nullable<int> Original_ListedBy) {
+                    int Original_ListedBy) {
             return this.Update(Name, Type, Size, Price, Colors, Description, Availability, CareDetails, CareDifficulty, DateAdded, ListedBy, Original_PlantId, Original_Name, Original_Type, Original_Size, Original_Price, Original_Colors, Original_Availability, Original_CareDifficulty, Original_DateAdded, Original_ListedBy, Original_PlantId);
         }
         

@@ -146,5 +146,29 @@ namespace PlantSalesApp
             }
             
         }
+
+        internal static void DeleteUser(int userId)
+        {
+            SqlConnection connection = PlantsDB.GetConnection();
+            string deleteStatement =
+                "Delete FROM Users WHERE UserId = @UserId";
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection);
+            deleteCommand.Parameters.AddWithValue("@UserId", Session.UserId);
+
+            try
+            {
+                connection.Open();
+                deleteCommand.ExecuteNonQuery();
+                //MessageBox.Show("User " + Session.UserId.ToString() + " deleted successfully");
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

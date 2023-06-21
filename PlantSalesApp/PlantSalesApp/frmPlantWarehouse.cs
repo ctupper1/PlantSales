@@ -227,11 +227,17 @@ namespace PlantSalesApp
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(
-            //    "You are about to delete your account. This action cannot be undone.",
-            //                   "Delete User", MessageBoxButtons.);
-            //DialogResult
-            //UserDB.DeleteUser(Session.UserId);
+
+            DialogResult confirmDelete = MessageBox.Show("You are about to delete your account. This action cannot be undone.",
+                               "Delete User", MessageBoxButtons.OKCancel);
+            if (confirmDelete == DialogResult.OK) 
+            { 
+                UserDB.DeleteUser(Session.UserId);
+                MessageBox.Show("User " + Session.UserId.ToString() + " deleted successfully");
+                btnDeleteUser.Visible = false;
+                handleRegisterForm(false);
+            }
+
         }
     }
 }
