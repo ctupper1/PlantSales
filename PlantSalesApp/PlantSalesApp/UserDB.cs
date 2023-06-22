@@ -49,6 +49,7 @@ namespace PlantSalesApp
             if (username != null) return true;
             else return false;
         }
+
         public static User CheckUserLogin(string username, string password)
         {
             User user = new User();
@@ -60,6 +61,7 @@ namespace PlantSalesApp
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             selectCommand.Parameters.AddWithValue("@Username", username);
             selectCommand.Parameters.AddWithValue("@Password", password);
+
             try
             {
                 connection.Open();
@@ -112,9 +114,10 @@ namespace PlantSalesApp
                 connection.Close();
             }
         }
-// New method added to retrieve user id from login credentials. UserID is saved to session
-// Makes sense to store admin credentials here too in order to extend higher privelege to admin users
-// Admin should be able to remove any listing, users limited to listings that they created
+
+        // Retrieves user id from login credentials. UserID is saved to session
+        // store admin credentials here too in order to extend higher privileges to admin users
+        // Admin should be able to remove any listing, users limited to listings that they created
         public static void GetUserId(User user)
         {
             SqlConnection connection = PlantsDB.GetConnection();
@@ -134,7 +137,6 @@ namespace PlantSalesApp
                     Session.UserId = (int)reader["UserId"];
                     Session.IsAdmin = (bool)reader["IsAdmin"];
                 }
-                //userId = (int)selectCommand.ExecuteScalar();
             }
             catch (SqlException ex)
             {

@@ -191,7 +191,7 @@ namespace PlantSalesApp
 
             // Get userID of user that created currently selected listing
             // The cell index is found in the datagrid view's tooltip menu
-            int listingCreator = (int)selectedRow.Cells[1].Value;
+            int listingCreator = (int)selectedRow.Cells[7].Value;
 
             if (Session.IsAdmin == true || Session.UserId == listingCreator)
             {
