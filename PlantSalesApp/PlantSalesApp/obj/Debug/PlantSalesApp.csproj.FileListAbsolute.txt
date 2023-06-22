@@ -57,3 +57,6 @@ C:\Users\Tristan\source\repos\PlantSalesRedo\PlantSalesApp\PlantSalesApp\obj\Deb
 C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesData.dll
 C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesData.pdb
 C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.CopyComplete
+C:\Users\Tristan\Source\Repos\PlantSalesRedo\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesData.dll
+C:\Users\Tristan\Source\Repos\PlantSalesRedo\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesData.pdb
+C:\Users\Tristan\Source\Repos\PlantSalesRedo\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.CopyComplete
