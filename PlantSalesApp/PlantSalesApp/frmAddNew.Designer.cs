@@ -141,6 +141,7 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CommentsTableAdapter = null;
             this.tableAdapterManager.PlantsTableAdapter = this.plantsTableAdapter;
             this.tableAdapterManager.UpdateOrder = PlantSalesApp.PlantsDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
@@ -231,6 +232,7 @@
             // 
             // btnAccept
             // 
+            this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAccept.Location = new System.Drawing.Point(16, 372);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(135, 48);

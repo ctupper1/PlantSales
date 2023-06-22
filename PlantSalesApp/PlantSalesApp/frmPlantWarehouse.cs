@@ -184,9 +184,11 @@ namespace PlantSalesApp
         {
             frmAddNew addNewPlantForm = new frmAddNew(Session.UserId);
             DialogResult result = addNewPlantForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
 
-            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
-            this.ClearFilters();
+            }
 
         }
         private void btnDelete_Click(object sender, EventArgs e)
