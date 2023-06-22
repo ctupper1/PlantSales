@@ -54,6 +54,3 @@ C:\Users\Tristan\source\repos\PlantSalesRedo\PlantSalesApp\PlantSalesApp\obj\Deb
 C:\Users\Tristan\source\repos\PlantSalesRedo\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.CoreCompileInputs.cache
 C:\Users\Tristan\source\repos\PlantSalesRedo\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.exe
 C:\Users\Tristan\source\repos\PlantSalesRedo\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.pdb
-C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesData.dll
-C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesData.pdb
-C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.CopyComplete
