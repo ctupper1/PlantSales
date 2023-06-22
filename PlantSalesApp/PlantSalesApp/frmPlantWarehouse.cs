@@ -4,7 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Threading.Tasks;using System.Text;
+using System.Threading.Tasks;
+using System.Text;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -26,7 +27,7 @@ namespace PlantSalesApp
             // TODO: This line of code loads data into the 'plantsDBDataSet1.Plants' table. You can move, or remove it, as needed.
             this.plantsTableAdapter.Fill(this.plantsDBDataSet1.Plants);
             // When form first loads, all listings are displayed in datagrid view control, add/delete/comment is disabled until logged in
-            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);          
+            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
             btnAddNew.Enabled = false;
             btnDelete.Enabled = false;
             btnComment.Enabled = false;
@@ -70,10 +71,10 @@ namespace PlantSalesApp
                     careDifficultyEnd = 10;
                 }
             }
-            this.plantsTableAdapter.FillByFilters(this.plantsDBDataSet.Plants, price, type, 
+            this.plantsTableAdapter.FillByFilters(this.plantsDBDataSet.Plants, price, type,
                 size, careDifficultyStart, careDifficultyEnd);
         }
-        
+
         private void cboPrice_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.filterDataGrid();
@@ -163,7 +164,8 @@ namespace PlantSalesApp
                         "Your user and all listings have been deleted. \r\n" +
                         "You are logged out now.",
                         "User Delete");
-                } else
+                }
+                else
                 {
                     MessageBox.Show(
                         "You are logged out now.",
@@ -174,7 +176,7 @@ namespace PlantSalesApp
                 isUserLoggedIn = false;
                 btnLogin.Text = "Log In";
                 btnRegister.Visible = true;
-                
+
                 enableFormControls(false);
                 this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
             }
@@ -183,12 +185,12 @@ namespace PlantSalesApp
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             frmAddNew addNewPlantForm = new frmAddNew(Session.UserId);
-            DialogResult result = addNewPlantForm.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
+            addNewPlantForm.Show();
 
-            }
+
+            this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
+
+
 
         }
         private void btnDelete_Click(object sender, EventArgs e)
@@ -246,8 +248,8 @@ namespace PlantSalesApp
 
             DialogResult confirmDelete = MessageBox.Show("You are about to delete your account. This action cannot be undone.",
                                "Delete User", MessageBoxButtons.OKCancel);
-            if (confirmDelete == DialogResult.OK) 
-            { 
+            if (confirmDelete == DialogResult.OK)
+            {
                 UserDB.DeleteUser(Session.UserId);
                 handleRegisterForm(false, true);
             }
