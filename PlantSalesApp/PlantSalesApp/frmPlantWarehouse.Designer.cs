@@ -30,6 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.plantIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CareDifficulty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.plantsDBDataSet = new PlantSalesApp.PlantsDBDataSet();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.cboDifficulty = new System.Windows.Forms.ComboBox();
             this.cboSize = new System.Windows.Forms.ComboBox();
@@ -47,28 +58,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pboxPlant = new System.Windows.Forms.PictureBox();
+            this.plantsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.plantsDBDataSet1 = new PlantSalesApp.PlantsDBDataSet();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.chkShowAll = new System.Windows.Forms.CheckBox();
             this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.plantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.plantsDBDataSet = new PlantSalesApp.PlantsDBDataSet();
             this.plantsTableAdapter = new PlantSalesApp.PlantsDBDataSetTableAdapters.PlantsTableAdapter();
-            this.plantIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CareDifficulty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableAdapterManager = new PlantSalesApp.PlantsDBDataSetTableAdapters.TableAdapterManager();
+            this.imagePictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxPlant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -99,6 +104,99 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1191, 494);
             this.dataGridView1.TabIndex = 7;
+            // 
+            // plantIdDataGridViewTextBoxColumn
+            // 
+            this.plantIdDataGridViewTextBoxColumn.DataPropertyName = "PlantId";
+            this.plantIdDataGridViewTextBoxColumn.HeaderText = "PlantId";
+            this.plantIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.plantIdDataGridViewTextBoxColumn.Name = "plantIdDataGridViewTextBoxColumn";
+            this.plantIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.plantIdDataGridViewTextBoxColumn.Visible = false;
+            this.plantIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Visible = false;
+            this.descriptionDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // sizeDataGridViewTextBoxColumn
+            // 
+            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
+            this.sizeDataGridViewTextBoxColumn.HeaderText = "Size";
+            this.sizeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
+            this.sizeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sizeDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // CareDifficulty
+            // 
+            this.CareDifficulty.DataPropertyName = "CareDifficulty";
+            this.CareDifficulty.HeaderText = "Difficulty";
+            this.CareDifficulty.MinimumWidth = 8;
+            this.CareDifficulty.Name = "CareDifficulty";
+            this.CareDifficulty.ReadOnly = true;
+            this.CareDifficulty.Width = 80;
+            // 
+            // UserId
+            // 
+            this.UserId.DataPropertyName = "UserId";
+            this.UserId.HeaderText = "Listed By";
+            this.UserId.MinimumWidth = 8;
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            this.UserId.Width = 80;
+            // 
+            // DateAdded
+            // 
+            this.DateAdded.DataPropertyName = "DateAdded";
+            this.DateAdded.HeaderText = "Date Added";
+            this.DateAdded.MinimumWidth = 8;
+            this.DateAdded.Name = "DateAdded";
+            this.DateAdded.ReadOnly = true;
+            this.DateAdded.Width = 150;
+            // 
+            // plantsBindingSource
+            // 
+            this.plantsBindingSource.DataMember = "Plants";
+            this.plantsBindingSource.DataSource = this.plantsDBDataSet;
+            // 
+            // plantsDBDataSet
+            // 
+            this.plantsDBDataSet.DataSetName = "PlantsDBDataSet";
+            this.plantsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cboType
             // 
@@ -225,16 +323,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.imagePictureBox);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.pboxPlant);
             this.groupBox1.Location = new System.Drawing.Point(16, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 225);
+            this.groupBox1.Size = new System.Drawing.Size(790, 236);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Details";
@@ -295,13 +393,15 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Name:";
             // 
-            // pboxPlant
+            // plantsBindingSource1
             // 
-            this.pboxPlant.Location = new System.Drawing.Point(6, 25);
-            this.pboxPlant.Name = "pboxPlant";
-            this.pboxPlant.Size = new System.Drawing.Size(198, 194);
-            this.pboxPlant.TabIndex = 0;
-            this.pboxPlant.TabStop = false;
+            this.plantsBindingSource1.DataMember = "Plants";
+            this.plantsBindingSource1.DataSource = this.plantsDBDataSet1;
+            // 
+            // plantsDBDataSet1
+            // 
+            this.plantsDBDataSet1.DataSetName = "PlantsDBDataSet";
+            this.plantsDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnLogin
             // 
@@ -347,101 +447,27 @@
             this.btnDeleteUser.Visible = false;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
-            // plantsBindingSource
-            // 
-            this.plantsBindingSource.DataMember = "Plants";
-            this.plantsBindingSource.DataSource = this.plantsDBDataSet;
-            // 
-            // plantsDBDataSet
-            // 
-            this.plantsDBDataSet.DataSetName = "PlantsDBDataSet";
-            this.plantsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // plantsTableAdapter
             // 
             this.plantsTableAdapter.ClearBeforeFill = true;
             // 
-            // plantIdDataGridViewTextBoxColumn
+            // tableAdapterManager
             // 
-            this.plantIdDataGridViewTextBoxColumn.DataPropertyName = "PlantId";
-            this.plantIdDataGridViewTextBoxColumn.HeaderText = "PlantId";
-            this.plantIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.plantIdDataGridViewTextBoxColumn.Name = "plantIdDataGridViewTextBoxColumn";
-            this.plantIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.plantIdDataGridViewTextBoxColumn.Visible = false;
-            this.plantIdDataGridViewTextBoxColumn.Width = 150;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CommentsTableAdapter = null;
+            this.tableAdapterManager.PlantsTableAdapter = this.plantsTableAdapter;
+            this.tableAdapterManager.UpdateOrder = PlantSalesApp.PlantsDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
             // 
-            // nameDataGridViewTextBoxColumn
+            // imagePictureBox
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn.Visible = false;
-            this.descriptionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.typeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // sizeDataGridViewTextBoxColumn
-            // 
-            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
-            this.sizeDataGridViewTextBoxColumn.HeaderText = "Size";
-            this.sizeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
-            this.sizeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sizeDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // CareDifficulty
-            // 
-            this.CareDifficulty.DataPropertyName = "CareDifficulty";
-            this.CareDifficulty.HeaderText = "Difficulty";
-            this.CareDifficulty.MinimumWidth = 8;
-            this.CareDifficulty.Name = "CareDifficulty";
-            this.CareDifficulty.ReadOnly = true;
-            this.CareDifficulty.Width = 80;
-            // 
-            // UserId
-            // 
-            this.UserId.DataPropertyName = "UserId";
-            this.UserId.HeaderText = "Listed By";
-            this.UserId.MinimumWidth = 8;
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            this.UserId.Width = 80;
-            // 
-            // DateAdded
-            // 
-            this.DateAdded.DataPropertyName = "DateAdded";
-            this.DateAdded.HeaderText = "Date Added";
-            this.DateAdded.MinimumWidth = 8;
-            this.DateAdded.Name = "DateAdded";
-            this.DateAdded.ReadOnly = true;
-            this.DateAdded.Width = 150;
+            this.imagePictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.plantsBindingSource, "Image", true));
+            this.imagePictureBox.Location = new System.Drawing.Point(6, 22);
+            this.imagePictureBox.Name = "imagePictureBox";
+            this.imagePictureBox.Size = new System.Drawing.Size(200, 194);
+            this.imagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imagePictureBox.TabIndex = 7;
+            this.imagePictureBox.TabStop = false;
             // 
             // frmPlantWarehouse
             // 
@@ -470,11 +496,13 @@
             this.Text = "Plant Warehouse";
             this.Load += new System.EventHandler(this.frmPlantWarehouse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxPlant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plantsDBDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,7 +525,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pboxPlant;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
@@ -517,6 +544,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CareDifficulty;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateAdded;
+        private PlantsDBDataSet plantsDBDataSet1;
+        private System.Windows.Forms.BindingSource plantsBindingSource1;
+        private System.Windows.Forms.PictureBox imagePictureBox;
+        private PlantsDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }
 
