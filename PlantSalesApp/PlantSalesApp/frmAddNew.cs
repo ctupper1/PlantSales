@@ -13,7 +13,7 @@ namespace PlantSalesApp
     public partial class frmAddNew : Form
     {
 
-        public frmAddNew(int userId)
+        public frmAddNew()
         {
             InitializeComponent();
 
@@ -24,12 +24,6 @@ namespace PlantSalesApp
             this.Validate();
             this.plantsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.plantsDBDataSet);
-
-        }
-
-        private void frmAddNew_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -41,7 +35,6 @@ namespace PlantSalesApp
         {
             if (IsValidData())
             {
-                DateTime dateAdded = DateTime.Now;
                 Plant newPlant = new Plant();
                 //Assign all values from this form's controls to newPlant
                 newPlant.Name = nameTextBox.Text;
@@ -57,10 +50,7 @@ namespace PlantSalesApp
 
                 //Add newPlant to the database
                 PlantsDB.AddNewItem(newPlant);
-
-                // I'm still not sure which method is best to use here. The method above seems simpler but doesn't use the dataset. Should we eliminate the dataset entirely?
-                // 
-                //plantsTableAdapter.Insert(newPlant.Name, newPlant.Type, newPlant.Size, newPlant.Price, newPlant.Colors, newPlant.Description, newPlant.Availability, newPlant.CareDetails, newPlant.CareDifficulty, dateAdded, newPlant.UserID);
+                this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
 
                 this.Close();
             }
@@ -68,7 +58,6 @@ namespace PlantSalesApp
 
         private bool IsValidData()
         {
-            // this works, but it closes the form if a field is missing? Not too sure if we want that
             if (Validator.IsPresent(nameTextBox) &&
                 Validator.IsPresent(typeComboBox) &&
                 Validator.IsPresent(sizeComboBox) &&

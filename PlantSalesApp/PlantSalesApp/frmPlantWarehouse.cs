@@ -7,7 +7,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace PlantSalesApp
@@ -24,10 +23,8 @@ namespace PlantSalesApp
 
         private void frmPlantWarehouse_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'plantsDBDataSet1.Plants' table. You can move, or remove it, as needed.
-            this.plantsTableAdapter.Fill(this.plantsDBDataSet1.Plants);
             // When form first loads, all listings are displayed in datagrid view control, add/delete/comment is disabled until logged in
-            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
+            filterDataGrid();          
             btnAddNew.Enabled = false;
             btnDelete.Enabled = false;
             btnComment.Enabled = false;
@@ -110,7 +107,7 @@ namespace PlantSalesApp
             cboPrice.Text = "Max Price";
             cboDifficulty.SelectedIndex = -1;
             cboDifficulty.Text = "Difficulty";
-            this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
+            filterDataGrid();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -178,13 +175,13 @@ namespace PlantSalesApp
                 btnRegister.Visible = true;
 
                 enableFormControls(false);
-                this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
+                filterDataGrid();
             }
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            frmAddNew addNewPlantForm = new frmAddNew(Session.UserId);
+            frmAddNew addNewPlantForm = new frmAddNew();
             addNewPlantForm.FormClosed += AddNewPlantForm_FormClosed;
             addNewPlantForm.Show();
         }

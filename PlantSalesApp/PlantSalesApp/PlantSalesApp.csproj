@@ -75,7 +75,6 @@
     <Compile Include="frmPlantWarehouse.Designer.cs">
       <DependentUpon>frmPlantWarehouse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Invoice.cs" />
     <Compile Include="Plant.cs" />
     <Compile Include="UserDB.cs" />
     <Compile Include="PlantsDB.cs" />
