@@ -40,3 +40,6 @@ C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\P
 C:\Users\Tristan\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmComments.resources
 C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmComments.resources
 C:\Users\srctb\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.frmComments.resources
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesData.dll
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\bin\Debug\PlantSalesData.pdb
+C:\Users\user\source\repos\PlantSales\PlantSalesApp\PlantSalesApp\obj\Debug\PlantSalesApp.csproj.CopyComplete
