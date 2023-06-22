@@ -190,7 +190,7 @@ namespace PlantSalesApp
 
         private void AddNewPlantForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            filterDataGrid();
+            chkShowAll.Checked = false;
             this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
         }
         private void btnDelete_Click(object sender, EventArgs e)
