@@ -133,6 +133,7 @@
             this.UserID.FillWeight = 22.84264F;
             this.UserID.HeaderText = "UserID";
             this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -140,6 +141,7 @@
             this.dataGridViewTextBoxColumn3.FillWeight = 206.8129F;
             this.dataGridViewTextBoxColumn3.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -147,6 +149,7 @@
             this.dataGridViewTextBoxColumn5.FillWeight = 70.34451F;
             this.dataGridViewTextBoxColumn5.HeaderText = "CommentDate";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // frmComments
             // 

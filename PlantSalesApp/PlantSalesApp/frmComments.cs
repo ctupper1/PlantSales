@@ -26,7 +26,6 @@ namespace PlantSalesApp
         
         private void frmComments_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'plantsDBDataSet.Comments' table. You can move, or remove it, as needed.
             this.commentsTableAdapter.FillByPlantId(this.plantsDBDataSet.Comments, plantID);
             this.txtComment.Enter += new EventHandler(txtComment_Enter);
             this.txtComment.Leave += new EventHandler(txtComment_Leave);
@@ -55,18 +54,22 @@ namespace PlantSalesApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (Validator.IsPresent(txtComment))
-            {
-                Comment newComment = new Comment();
+            if(this.txtComment.Text != "" && this.txtComment.Text != "Add a comment...")
+                {
+                    Comment newComment = new Comment();
                 
-                newComment.PlantID = plantID;
-                newComment.CommentMsg = txtComment.Text;
-                newComment.UserID = Session.UserId;
+                    newComment.PlantID = plantID;
+                    newComment.CommentMsg = txtComment.Text;
+                    newComment.UserID = Session.UserId;
 
-                //Add newComment to the database
-                CommentsDB.AddNewComment(newComment);
-                this.Close();
-            }
+                    //Add newComment to the database
+                    CommentsDB.AddNewComment(newComment);
+                    this.Close();
+            } else
+            {
+                MessageBox.Show("You must enter a comment.",
+                    "Add Failed");
+            } 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -81,8 +84,8 @@ namespace PlantSalesApp
             {
                 // adds simple dialog to accept or deny
                 // https://stackoverflow.com/questions/3036829/how-do-i-create-a-message-box-with-yes-no-choices-and-a-dialogresult
-                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this listing?",
-                    "Delete Listing", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Are you sure that you want to delete this comment?",
+                    "Delete Comment", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     commentsDataGridView.Rows.RemoveAt(selectedRow.Index);
@@ -91,7 +94,7 @@ namespace PlantSalesApp
             }
             else
             {
-                MessageBox.Show("You can only delete your own listings.",
+                MessageBox.Show("You can only delete your own comments.",
                     "Delete Failed");
                 return;
             }
