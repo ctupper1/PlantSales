@@ -7,11 +7,11 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="-10" ViewPortY="-47" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Plants" ZOrder="1" X="70" Y="73" Height="533" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="358" />
-    <Shape ID="DesignTable:Users" ZOrder="5" X="984" Y="83" Height="209" Width="240" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="142" />
-    <Shape ID="DesignTable:Comments" ZOrder="4" X="540" Y="395" Height="236" Width="286" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="169" />
+    <Shape ID="DesignTable:Users" ZOrder="6" X="984" Y="83" Height="209" Width="240" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="142" />
+    <Shape ID="DesignTable:Comments" ZOrder="5" X="540" Y="395" Height="236" Width="286" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="169" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK__Comments__PlantI__3C69FB99" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Comments__PlantI__3C69FB99" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>370</X>
@@ -23,7 +23,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK__Comments__UserID__3D5E1FD2" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK__Comments__UserID__3D5E1FD2" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1001</X>
@@ -36,6 +36,26 @@
         <Point>
           <X>826</X>
           <Y>412</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:FK_Plants_Users" ZOrder="2" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>134</X>
+          <Y>0</Y>
+        </Point>
+        <Point>
+          <X>134</X>
+          <Y>-30</Y>
+        </Point>
+        <Point>
+          <X>134</X>
+          <Y>-30</Y>
+        </Point>
+        <Point>
+          <X>134</X>
+          <Y>0</Y>
         </Point>
       </RoutePoints>
     </Connector>

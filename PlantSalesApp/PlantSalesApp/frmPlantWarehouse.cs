@@ -23,6 +23,8 @@ namespace PlantSalesApp
 
         private void frmPlantWarehouse_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'plantsDBDataSet1.Plants' table. You can move, or remove it, as needed.
+            this.plantsTableAdapter.Fill(this.plantsDBDataSet1.Plants);
             // When form first loads, all listings are displayed in datagrid view control, add/delete/comment is disabled until logged in
             this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);          
             btnAddNew.Enabled = false;
@@ -166,11 +168,13 @@ namespace PlantSalesApp
                     MessageBox.Show(
                         "You are logged out now.",
                         "User Logged Out");
+                    btnDeleteUser.Visible = false;
                 }
+
                 isUserLoggedIn = false;
                 btnLogin.Text = "Log In";
                 btnRegister.Visible = true;
-                btnDeleteUser.Visible = false;
+                
                 enableFormControls(false);
                 this.plantsTableAdapter.Fill(this.plantsDBDataSet.Plants);
             }
