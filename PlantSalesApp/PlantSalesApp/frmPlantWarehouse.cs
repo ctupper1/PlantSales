@@ -185,13 +185,14 @@ namespace PlantSalesApp
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             frmAddNew addNewPlantForm = new frmAddNew(Session.UserId);
+            addNewPlantForm.FormClosed += AddNewPlantForm_FormClosed;
             addNewPlantForm.Show();
+        }
 
-
+        private void AddNewPlantForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            filterDataGrid();
             this.plantsTableAdapter.FillByUserId(this.plantsDBDataSet.Plants, Session.UserId);
-
-
-
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
