@@ -59,11 +59,11 @@ namespace PlantSalesApp
         private bool IsValidData()
         {
             if (Validator.IsPresent(nameTextBox) &&
+                Validator.IsPresent(descriptionTextBox) &&
+                Validator.IsPresent(careDetailsTextBox) &&
                 Validator.IsPresent(typeComboBox) &&
                 Validator.IsPresent(sizeComboBox) &&
                 Validator.IsPresent(priceTextBox) &&
-                Validator.IsPresent(descriptionTextBox) &&
-                Validator.IsPresent(careDetailsTextBox) &&
                 Validator.IsDecimal(priceTextBox))
             {
                 return true;

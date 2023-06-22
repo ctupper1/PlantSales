@@ -249,6 +249,7 @@ namespace PlantSalesApp
             if (confirmDelete == DialogResult.OK)
             {
                 UserDB.DeleteUser(Session.UserId);
+                btnDeleteUser.Visible = false;
                 handleRegisterForm(false, true);
             }
 
