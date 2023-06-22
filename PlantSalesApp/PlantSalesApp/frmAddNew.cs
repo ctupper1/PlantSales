@@ -18,15 +18,6 @@ namespace PlantSalesApp
         public frmAddNew(int userId)
         {
             InitializeComponent();
-
-        }
-
-        private void plantsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.plantsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.plantsDBDataSet);
-
         }
 
         private void frmAddNew_Load(object sender, EventArgs e)
@@ -65,6 +56,10 @@ namespace PlantSalesApp
                 //plantsTableAdapter.Insert(newPlant.Name, newPlant.Type, newPlant.Size, newPlant.Price, newPlant.Colors, newPlant.Description, newPlant.Availability, newPlant.CareDetails, newPlant.CareDifficulty, dateAdded, newPlant.UserID);
 
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please check your entry and try again.");
             }
         }
 
