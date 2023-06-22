@@ -34,6 +34,7 @@ namespace PlantSalesApp
 
         public void filterDataGrid()
         {
+            chkShowAll.Checked = true;
             decimal price;
             string type;
             string size;
