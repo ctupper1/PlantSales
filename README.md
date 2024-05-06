@@ -1,6 +1,7 @@
 # Plant Sales
 ### Group project using Windows Forms, C#/.NET
 ### Project completed during the 2022-23 year at South Puget Sound Community College.
+Explored MVC architecture with Windows Forms to build a basic desktop-based database CRUD application.
 
 
 ## Project setup
